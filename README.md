@@ -1,4 +1,4 @@
-# Proyecto Gimnasio 🏋️
+# Proyecto Código fitness 🏋️
 
 ## Descripción
 
