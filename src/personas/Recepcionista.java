@@ -59,4 +59,5 @@ public class Recepcionista extends Persona {
                 ", bonus=" + bonus +
                 '}';
     }
+
 }
