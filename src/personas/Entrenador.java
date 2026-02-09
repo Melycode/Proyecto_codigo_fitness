@@ -1,5 +1,8 @@
 package personas;
 
+import servicios.Gimcurso;
+
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class Entrenador extends Persona {
@@ -8,6 +11,7 @@ public class Entrenador extends Persona {
     private int aniosExperiencia;
     private boolean disponible;
     private double sueldoExtra;
+    private ArrayList<Gimcurso> clasesAsignadas = new ArrayList<>();
 
     public Entrenador(String nombre, String dni, int edad, Sexo sexo, Especialidad especialidad, int aniosExperiencia, boolean disponible, double sueldoExtra) {
         super(nombre, dni, edad, sexo);

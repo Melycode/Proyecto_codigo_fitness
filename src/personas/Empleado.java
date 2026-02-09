@@ -1,11 +1,14 @@
 package personas;
 
+import java.util.ArrayList;
+
 public class Empleado extends Persona {
     public enum Turno { MANANA, TARDE, NOCHE }
     private double salario;
     private Turno turno;
     private String fechaContratacion;
     private boolean activo;
+    private ArrayList<Turno> historialTurnos = new ArrayList<>();
 
     public Empleado(String nombre, String dni, int edad, Sexo sexo, double salario, Turno turno, String fechaContratacion, boolean activo) {
         super(nombre, dni, edad, sexo);
