@@ -13,12 +13,13 @@ public class Entrenador extends Persona {
     private double sueldoExtra;
     private ArrayList<Gimcurso> clasesAsignadas = new ArrayList<>();
 
-    public Entrenador(String nombre, String dni, int edad, Sexo sexo, Especialidad especialidad, int aniosExperiencia, boolean disponible, double sueldoExtra) {
+    public Entrenador(String nombre, String dni, int edad, Sexo sexo, Especialidad especialidad, int aniosExperiencia, boolean disponible, double sueldoExtra, ArrayList<Gimcurso> clasesAsignadas) {
         super(nombre, dni, edad, sexo);
         this.especialidad = especialidad;
         this.aniosExperiencia = aniosExperiencia;
         this.disponible = disponible;
         this.sueldoExtra = sueldoExtra;
+        this.clasesAsignadas = clasesAsignadas;
     }
 
     public Entrenador() {
@@ -56,17 +57,34 @@ public class Entrenador extends Persona {
         this.sueldoExtra = sueldoExtra;
     }
 
+    public ArrayList<Gimcurso> getClasesAsignadas() {
+        return clasesAsignadas;
+    }
+
+    public void setClasesAsignadas(ArrayList<Gimcurso> clasesAsignadas) {
+        this.clasesAsignadas = clasesAsignadas;
+    }
+
+    public void asignarClase(Gimcurso clase) {
+        if (!clasesAsignadas.contains(clase)) {
+            clasesAsignadas.add(clase);
+        }
+    }
+    public void quitarClase(Gimcurso clase) {
+        clasesAsignadas.remove(clase);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         Entrenador that = (Entrenador) o;
-        return aniosExperiencia == that.aniosExperiencia && disponible == that.disponible && Double.compare(sueldoExtra, that.sueldoExtra) == 0 && especialidad == that.especialidad;
+        return aniosExperiencia == that.aniosExperiencia && disponible == that.disponible && Double.compare(sueldoExtra, that.sueldoExtra) == 0 && especialidad == that.especialidad && Objects.equals(clasesAsignadas, that.clasesAsignadas);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), especialidad, aniosExperiencia, disponible, sueldoExtra);
+        return Objects.hash(super.hashCode(), especialidad, aniosExperiencia, disponible, sueldoExtra, clasesAsignadas);
     }
 
     @Override
