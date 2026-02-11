@@ -5,14 +5,14 @@ import java.util.HashMap;
 import java.util.Objects;
 
 public class Inscripcion {
-    // Atributos requeridos (mínimo 4) [cite: 13]
+
     private String idInscripcion;
     private Cliente cliente;
     private Cuota cuota;
     private String fechaInicio;
     private boolean pagado;
 
-    // SEGUNDO HASHMAP DEL PROYECTO
+
     private static HashMap<String, Inscripcion> mapaInscripciones = new HashMap<>();
 
     public Inscripcion(String idInscripcion, Cliente cliente, Cuota cuota, String fechaInicio, boolean pagado) {
@@ -23,11 +23,11 @@ public class Inscripcion {
         this.pagado = pagado;
     }
 
-    // Constructor vacío [cite: 14]
+
     public Inscripcion() {
     }
 
-    // Getters y Setters [cite: 16]
+
     public String getIdInscripcion() { return idInscripcion; }
     public void setIdInscripcion(String idInscripcion) { this.idInscripcion = idInscripcion; }
 
@@ -43,7 +43,7 @@ public class Inscripcion {
     public boolean isPagado() { return pagado; }
     public void setPagado(boolean pagado) { this.pagado = pagado; }
 
-    // MÉTODO: AÑADIR
+    // MÉT ADD
     public boolean agregarInscripcion(Inscripcion ins) {
         if (ins != null && !mapaInscripciones.containsKey(ins.getIdInscripcion())) {
             mapaInscripciones.put(ins.getIdInscripcion(), ins);
@@ -52,12 +52,12 @@ public class Inscripcion {
         return false;
     }
 
-    // MÉTODO: BUSCAR
+    // MET FIND
     public Inscripcion buscarInscripcion(String id) {
         return mapaInscripciones.get(id);
     }
 
-    // MÉTODO: BORRAR
+    // MET
     public boolean borrarInscripcion(String id) {
         return mapaInscripciones.remove(id) != null;
     }
