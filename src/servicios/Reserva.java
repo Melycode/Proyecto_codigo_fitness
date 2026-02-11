@@ -4,21 +4,21 @@ import personas.Cliente;
 
 import java.util.Objects;
 
-public class Reserve extends Servicio{
+public class Reserva extends Servicio{
     private Cliente cliente;
-    private Gimcurso gimcurso;
+    private Clase clase;
     private String fecha;
     private boolean confirmada;
 
-    public Reserve(int idServicio, String nombre, double precioBase, boolean activo, Cliente cliente, Gimcurso gimcurso, String fecha, boolean confirmada) {
+    public Reserva(int idServicio, String nombre, double precioBase, boolean activo, Cliente cliente, Clase clase, String fecha, boolean confirmada) {
         super(idServicio, nombre, precioBase, activo);
         this.cliente = cliente;
-        this.gimcurso = gimcurso;
+        this.clase = clase;
         this.fecha = fecha;
         this.confirmada = confirmada;
     }
 
-    public Reserve() {
+    public Reserva() {
     }
 
     public Cliente getCliente() {
@@ -29,12 +29,12 @@ public class Reserve extends Servicio{
         this.cliente = cliente;
     }
 
-    public Gimcurso getGimcurso() {
-        return gimcurso;
+    public Clase getGimcurso() {
+        return clase;
     }
 
-    public void setGimcurso(Gimcurso gimcurso) {
-        this.gimcurso = gimcurso;
+    public void setGimcurso(Clase clase) {
+        this.clase = clase;
     }
 
     public String getFecha() {
@@ -57,20 +57,20 @@ public class Reserve extends Servicio{
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
-        Reserve reserve = (Reserve) o;
-        return confirmada == reserve.confirmada && Objects.equals(cliente, reserve.cliente) && Objects.equals(gimcurso, reserve.gimcurso) && Objects.equals(fecha, reserve.fecha);
+        Reserva reserve = (Reserva) o;
+        return confirmada == reserve.confirmada && Objects.equals(cliente, reserve.cliente) && Objects.equals(clase, reserve.clase) && Objects.equals(fecha, reserve.fecha);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), cliente, gimcurso, fecha, confirmada);
+        return Objects.hash(super.hashCode(), cliente, clase, fecha, confirmada);
     }
 
     @Override
     public String toString() {
         return "Reserve{" +
                 "cliente=" + cliente +
-                ", gimcurso=" + gimcurso +
+                ", gimcurso=" + clase +
                 ", fecha='" + fecha + '\'' +
                 ", confirmada=" + confirmada +
                 '}';

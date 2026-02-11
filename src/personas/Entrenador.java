@@ -1,6 +1,6 @@
 package personas;
 
-import servicios.Gimcurso;
+import servicios.Clase;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -11,9 +11,9 @@ public class Entrenador extends Persona {
     private int aniosExperiencia;
     private boolean disponible;
     private double sueldoExtra;
-    private ArrayList<Gimcurso> clasesAsignadas = new ArrayList<>();
+    private ArrayList<Clase> clasesAsignadas = new ArrayList<>();
 
-    public Entrenador(String nombre, String dni, int edad, Sexo sexo, Especialidad especialidad, int aniosExperiencia, boolean disponible, double sueldoExtra, ArrayList<Gimcurso> clasesAsignadas) {
+    public Entrenador(String nombre, String dni, int edad, Sexo sexo, Especialidad especialidad, int aniosExperiencia, boolean disponible, double sueldoExtra, ArrayList<Clase> clasesAsignadas) {
         super(nombre, dni, edad, sexo);
         this.especialidad = especialidad;
         this.aniosExperiencia = aniosExperiencia;
@@ -57,33 +57,33 @@ public class Entrenador extends Persona {
         this.sueldoExtra = sueldoExtra;
     }
 
-    public ArrayList<Gimcurso> getClasesAsignadas() {
+    public ArrayList<Clase> getClasesAsignadas() {
         return clasesAsignadas;
     }
 
-    public void setClasesAsignadas(ArrayList<Gimcurso> clasesAsignadas) {
+    public void setClasesAsignadas(ArrayList<Clase> clasesAsignadas) {
         this.clasesAsignadas = clasesAsignadas;
     }
 
-    public void asignarClase(Gimcurso clase) {
+    public void asignarClase(Clase clase) {
         if (!this.clasesAsignadas.contains(clase)) {
             this.clasesAsignadas.add(clase);
         }
     }
-    public boolean anadirClase(Gimcurso clase) {
+    public boolean anadirClase(Clase clase) {
         if (clase != null && !this.clasesAsignadas.contains(clase)) {
             this.clasesAsignadas.add(clase);
             return true;
         }
         return false;
     }
-    public int buscarClase(Gimcurso clase) {
+    public int buscarClase(Clase clase) {
         return this.clasesAsignadas.indexOf(clase);
     }
-    public boolean borrarClase(Gimcurso clase) {
+    public boolean borrarClase(Clase clase) {
         return this.clasesAsignadas.remove(clase);
     }
-    public boolean modificarClase(int indice, Gimcurso nuevaClase) {
+    public boolean modificarClase(int indice, Clase nuevaClase) {
         if (indice >= 0 && indice < this.clasesAsignadas.size() && nuevaClase != null) {
             this.clasesAsignadas.set(indice, nuevaClase);
             return true;

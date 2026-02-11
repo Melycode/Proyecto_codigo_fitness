@@ -26,7 +26,7 @@ public class Maquina extends Servicio {
     }
 
     public Maquina() {
-        super(); // llama al constructor vacío de Servicio
+        super();
     }
 
     public String getNombreMaquina() {

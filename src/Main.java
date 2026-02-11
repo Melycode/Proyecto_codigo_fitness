@@ -1,8 +1,6 @@
 import personas.Persona;
 import personas.Cliente;
-import servicios.Servicio;
-import servicios.Maquina;
-import servicios.Gimcurso;
+import servicios.Clase;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -12,7 +10,7 @@ public class Main {
         ArrayList<Cliente> listaClientes = new ArrayList<>();
         HashMap<String, Cliente> mapaClientes = new HashMap<>();
 
-        Gimcurso curso = new Gimcurso(
+        Clase curso = new Clase(
                 1,
                 "Fitness Total",
                 50.0,
@@ -21,7 +19,7 @@ public class Main {
                 100.0,
                 listaClientes,
                 mapaClientes,
-                Gimcurso.NivelDificultad.INTERMEDIO
+                Clase.NivelDificultad.INTERMEDIO
         );
 
 

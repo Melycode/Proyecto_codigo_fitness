@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Objects;
 
-public class Gimcurso extends Servicio{
+public class Clase extends Servicio{
         public enum NivelDificultad { PRINCIPIANTE, INTERMEDIO, AVANZADO }
         private int duracion;
         private double precio;
@@ -12,7 +12,7 @@ public class Gimcurso extends Servicio{
         private HashMap<String, Cliente> mapaClientes;  // atributo tipo HashMap
         private NivelDificultad nivel;
 
-    public Gimcurso(int idServicio, String nombre, double precioBase, boolean activo, int duracion, double precio, ArrayList<Cliente> listaClientes, HashMap<String, Cliente> mapaClientes, NivelDificultad nivel) {
+    public Clase(int idServicio, String nombre, double precioBase, boolean activo, int duracion, double precio, ArrayList<Cliente> listaClientes, HashMap<String, Cliente> mapaClientes, NivelDificultad nivel) {
         super(idServicio, nombre, precioBase, activo);
         this.duracion = duracion;
         this.precio = precio;
@@ -65,8 +65,8 @@ public class Gimcurso extends Servicio{
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
-        Gimcurso gimcurso = (Gimcurso) o;
-        return duracion == gimcurso.duracion && Double.compare(precio, gimcurso.precio) == 0 && Objects.equals(listaClientes, gimcurso.listaClientes) && Objects.equals(mapaClientes, gimcurso.mapaClientes) && Objects.equals(nivel, gimcurso.nivel);
+        Clase clase = (Clase) o;
+        return duracion == clase.duracion && Double.compare(precio, clase.precio) == 0 && Objects.equals(listaClientes, clase.listaClientes) && Objects.equals(mapaClientes, clase.mapaClientes) && Objects.equals(nivel, clase.nivel);
     }
 
     @Override
