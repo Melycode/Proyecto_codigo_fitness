@@ -70,6 +70,8 @@ public class Entrenador extends Persona {
             this.clasesAsignadas.add(clase);
         }
     }
+
+
     public boolean añadirClase(Gimcurso clase) {
         if (clase != null && !this.clasesAsignadas.contains(clase)) {
             this.clasesAsignadas.add(clase);
