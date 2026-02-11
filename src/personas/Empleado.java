@@ -100,9 +100,6 @@ public class Empleado extends Persona {
         }
     }
 
-    public void limpiarHistorialTurnos() {
-        this.historialTurnos.clear();
-    }
     public Turno modificarTurno(int indice, Turno nuevoTurno) {
         if (nuevoTurno != null && indice >= 0 && indice < this.historialTurnos.size()) {
             return this.historialTurnos.set(indice, nuevoTurno);

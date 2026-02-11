@@ -66,12 +66,29 @@ public class Entrenador extends Persona {
     }
 
     public void asignarClase(Gimcurso clase) {
-        if (!clasesAsignadas.contains(clase)) {
-            clasesAsignadas.add(clase);
+        if (!this.clasesAsignadas.contains(clase)) {
+            this.clasesAsignadas.add(clase);
         }
     }
-    public void quitarClase(Gimcurso clase) {
-        clasesAsignadas.remove(clase);
+    public boolean añadirClase(Gimcurso clase) {
+        if (clase != null && !this.clasesAsignadas.contains(clase)) {
+            this.clasesAsignadas.add(clase);
+            return true;
+        }
+        return false;
+    }
+    public int buscarClase(Gimcurso clase) {
+        return this.clasesAsignadas.indexOf(clase);
+    }
+    public boolean borrarClase(Gimcurso clase) {
+        return this.clasesAsignadas.remove(clase);
+    }
+    public boolean modificarClase(int indice, Gimcurso nuevaClase) {
+        if (indice >= 0 && indice < this.clasesAsignadas.size() && nuevaClase != null) {
+            this.clasesAsignadas.set(indice, nuevaClase);
+            return true;
+        }
+        return false;
     }
 
     @Override
