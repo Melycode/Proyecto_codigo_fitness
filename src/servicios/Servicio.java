@@ -53,7 +53,7 @@ public class Servicio {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o|| getClass() != o.getClass()) return false;
+        if (this == o|| getClass() != o.getClass()) return true;
         Servicio servicio = (Servicio) o;
         return idServicio == servicio.idServicio && Double.compare(precioBase, servicio.precioBase) == 0 && activo == servicio.activo && Objects.equals(nombre, servicio.nombre);
     }
