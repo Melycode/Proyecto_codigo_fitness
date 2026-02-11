@@ -68,13 +68,61 @@ public class Empleado extends Persona {
     }
 
     public boolean haTrabajadoEnTurno(Turno t) {
-        for (Turno turno : historialTurnos) {
+        for (Turno turno : this.historialTurnos) {
             if (turno == t) {
                 return true;
             }
         }
         return false;
     }
+    public int buscarPrimerTurno(Turno t) {
+        return this.historialTurnos.indexOf(t);
+    }
+    public int buscarUltimoTurno(Turno t) {
+        return this.historialTurnos.lastIndexOf(t);
+    }
+    public Turno borrarTurno(int indice) {
+        if (indice >= 0 && indice < this.historialTurnos.size()) {
+            return this.historialTurnos.remove(indice);
+        }
+        return null;
+    }
+    public int borrarTodosTurnos(Turno t) {
+        int contador = 0;
+        while (this.historialTurnos.remove(t)) {
+            contador++;
+        }
+        return contador;
+    }
+    public void anadirTurno(Turno t) {
+        if (t != null) {
+            this.historialTurnos.add(t);
+        }
+    }
+
+    public void limpiarHistorialTurnos() {
+        this.historialTurnos.clear();
+    }
+    public Turno modificarTurno(int indice, Turno nuevoTurno) {
+        if (nuevoTurno != null && indice >= 0 && indice < this.historialTurnos.size()) {
+            return this.historialTurnos.set(indice, nuevoTurno);
+        }
+        return null;
+    }
+    public int reemplazarTurno(Turno turnoViejo, Turno turnoNuevo) {
+        if (turnoViejo == null || turnoNuevo == null) {
+            return 0;
+        }
+        int contador = 0;
+        for (int i = 0; i < this.historialTurnos.size(); i++) {
+            if (this.historialTurnos.get(i) == turnoViejo) {
+                this.historialTurnos.set(i, turnoNuevo);
+                contador++;
+            }
+        }
+        return contador;
+    }
+
 
     @Override
     public boolean equals(Object o) {
