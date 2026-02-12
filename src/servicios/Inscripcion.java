@@ -12,7 +12,6 @@ public class Inscripcion {
     private String fechaInicio;
     private boolean pagado;
 
-    // SEGUNDO HASHMAP DEL PROYECTO
     private static HashMap<String, Inscripcion> mapaInscripciones = new HashMap<>();
 
     public Inscripcion(String idInscripcion, Cliente cliente, Cuota cuota, String fechaInicio, boolean pagado) {
