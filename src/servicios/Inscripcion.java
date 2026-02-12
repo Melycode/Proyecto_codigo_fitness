@@ -23,11 +23,9 @@ public class Inscripcion {
         this.pagado = pagado;
     }
 
-    // Constructor vacío [cite: 14]
     public Inscripcion() {
     }
 
-    // Getters y Setters [cite: 16]
     public String getIdInscripcion() { return idInscripcion; }
     public void setIdInscripcion(String idInscripcion) { this.idInscripcion = idInscripcion; }
 
@@ -43,7 +41,6 @@ public class Inscripcion {
     public boolean isPagado() { return pagado; }
     public void setPagado(boolean pagado) { this.pagado = pagado; }
 
-    // MÉTODO: AÑADIR
     public boolean agregarInscripcion(Inscripcion ins) {
         if (ins != null && !mapaInscripciones.containsKey(ins.getIdInscripcion())) {
             mapaInscripciones.put(ins.getIdInscripcion(), ins);
@@ -52,17 +49,14 @@ public class Inscripcion {
         return false;
     }
 
-    // MÉTODO: BUSCAR
     public Inscripcion buscarInscripcion(String id) {
         return mapaInscripciones.get(id);
     }
 
-    // MÉTODO: BORRAR
     public boolean borrarInscripcion(String id) {
         return mapaInscripciones.remove(id) != null;
     }
 
-    // MÉTODO: MODIFICAR
     public boolean modificarEstadoPago(String id, boolean nuevoEstado) {
         Inscripcion ins = mapaInscripciones.get(id);
         if (ins != null) {
@@ -72,7 +66,6 @@ public class Inscripcion {
         return false;
     }
 
-    // equals y hashCode [cite: 27]
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -86,7 +79,6 @@ public class Inscripcion {
         return Objects.hash(idInscripcion, pagado);
     }
 
-    // toString personalizado [cite: 17]
     @Override
     public String toString() {
         return "Inscripcion{" +
