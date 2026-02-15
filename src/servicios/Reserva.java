@@ -2,16 +2,17 @@ package servicios;
 
 import personas.Cliente;
 
+import java.time.LocalDate;
 import java.util.Objects;
 
 public class Reserva extends Servicio{
     private Cliente cliente;
     private Clase clase;
-    private String fecha;
+    private LocalDate fecha;
     private boolean confirmada;
 
-    public Reserva(int idServicio, String nombre, double precioBase, boolean activo, Cliente cliente, Clase clase, String fecha, boolean confirmada) {
-        super(idServicio, nombre, precioBase, activo);
+    public Reserva(int idServicio, String nombre, boolean activo, Cliente cliente, Clase clase, LocalDate fecha, boolean confirmada) {
+        super(idServicio, nombre, activo);
         this.cliente = cliente;
         this.clase = clase;
         this.fecha = fecha;
@@ -19,6 +20,7 @@ public class Reserva extends Servicio{
     }
 
     public Reserva() {
+        super();
     }
 
     public Cliente getCliente() {
@@ -29,19 +31,19 @@ public class Reserva extends Servicio{
         this.cliente = cliente;
     }
 
-    public Clase getGimcurso() {
+    public Clase getClase() {
         return clase;
     }
 
-    public void setGimcurso(Clase clase) {
+    public void setClase(Clase clase) {
         this.clase = clase;
     }
 
-    public String getFecha() {
+    public LocalDate getFecha() {
         return fecha;
     }
 
-    public void setFecha(String fecha) {
+    public void setFecha(LocalDate fecha) {
         this.fecha = fecha;
     }
 
@@ -57,8 +59,8 @@ public class Reserva extends Servicio{
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
-        Reserva reserve = (Reserva) o;
-        return confirmada == reserve.confirmada && Objects.equals(cliente, reserve.cliente) && Objects.equals(clase, reserve.clase) && Objects.equals(fecha, reserve.fecha);
+        Reserva reserva = (Reserva) o;
+        return confirmada == reserva.confirmada && Objects.equals(cliente, reserva.cliente) && Objects.equals(clase, reserva.clase) && Objects.equals(fecha, reserva.fecha);
     }
 
     @Override
@@ -68,10 +70,10 @@ public class Reserva extends Servicio{
 
     @Override
     public String toString() {
-        return "Reserve{" +
+        return "Reserva{" +
                 "cliente=" + cliente +
-                ", gimcurso=" + clase +
-                ", fecha='" + fecha + '\'' +
+                ", clase=" + clase +
+                ", fecha=" + fecha +
                 ", confirmada=" + confirmada +
                 '}';
     }

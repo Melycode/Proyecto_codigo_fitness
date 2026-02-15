@@ -3,15 +3,13 @@ package servicios;
 import java.util.Objects;
 
 public class Servicio {
-    private int idServicio;;
+    private int idServicio;
     private String nombre;
-    private double precioBase;
     private boolean activo;
 
-    public Servicio(int idServicio, String nombre, double precioBase, boolean activo) {
+    public Servicio(int idServicio, String nombre, boolean activo) {
         this.idServicio = idServicio;
         this.nombre = nombre;
-        this.precioBase = precioBase;
         this.activo = activo;
     }
 
@@ -35,14 +33,6 @@ public class Servicio {
         this.nombre = nombre;
     }
 
-    public double getPrecioBase() {
-        return precioBase;
-    }
-
-    public void setPrecioBase(double precioBase) {
-        this.precioBase = precioBase;
-    }
-
     public boolean isActivo() {
         return activo;
     }
@@ -53,23 +43,19 @@ public class Servicio {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o|| getClass() != o.getClass()) return false;
+        if (this == o) return true; // Optimización de referencia
+        if (o == null || getClass() != o.getClass()) return false;
         Servicio servicio = (Servicio) o;
-        return idServicio == servicio.idServicio && Double.compare(precioBase, servicio.precioBase) == 0 && activo == servicio.activo && Objects.equals(nombre, servicio.nombre);
+        return idServicio == servicio.idServicio;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idServicio, nombre, precioBase, activo);
+        return Objects.hash(idServicio);
     }
 
     @Override
     public String toString() {
-        return "Servicio{" +
-                "idServicio=" + idServicio +
-                ", nombre='" + nombre + '\'' +
-                ", precioBase=" + precioBase +
-                ", activo=" + activo +
-                '}';
+        return "Servicio: " + nombre + " (ID: " + idServicio + ") [" + (activo ? "Activo" : "Inactivo") + "]";
     }
 }

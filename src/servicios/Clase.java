@@ -15,26 +15,16 @@ public class Clase extends Servicio{
         private HashSet<Cliente> setClientes = new HashSet<>();
 
 
-    public Clase(int idServicio, String nombre, double precioBase, boolean activo, Entrenador.Especialidad especialidad, NivelDificultad nivel, int duracion, double precio, ArrayList<Cliente> listClientes, HashSet<Cliente> setClientes) {
-        super(idServicio, nombre, precioBase, activo);
+    public Clase(int idServicio, String nombre, boolean activo, Entrenador.Especialidad especialidad, NivelDificultad nivel, int duracion, double precio) {
+        super(idServicio, nombre, activo);
         this.especialidad = especialidad;
         this.nivel = nivel;
         this.duracion = duracion;
         this.precio = precio;
-        this.listClientes = listClientes;
-        this.setClientes = setClientes;
-    }
-
-    public Clase(Entrenador.Especialidad especialidad, NivelDificultad nivel, int duracion, double precio, ArrayList<Cliente> listClientes, HashSet<Cliente> setClientes) {
-        this.especialidad = especialidad;
-        this.nivel = nivel;
-        this.duracion = duracion;
-        this.precio = precio;
-        this.listClientes = listClientes;
-        this.setClientes = setClientes;
     }
 
     public Clase() {
+        super();
     }
 
     public Entrenador.Especialidad getEspecialidad() {
@@ -61,13 +51,8 @@ public class Clase extends Servicio{
         this.duracion = duracion;
     }
 
-    public double getPrecio() {
-        return precio;
-    }
-
-    public void setPrecio(double precio) {
-        this.precio = precio;
-    }
+    public double getPrecio() { return precio; }
+    public void setPrecio(double precio) { this.precio = precio; }
 
     public ArrayList<Cliente> getListClientes() {
         return listClientes;
@@ -156,7 +141,7 @@ public class Clase extends Servicio{
         System.out.println("La clase ha sido actualizada a: " + this.especialidad + " (" + this.nivel + ")");
 
         for (Cliente c : listClientes) {
-            System.out.println("✨ " + c.getNombre() + " está ahora en la clase de " + this.especialidad);
+            System.out.println(c.getNombre() + " está ahora en la clase de " + this.especialidad);
         }
     }
 
