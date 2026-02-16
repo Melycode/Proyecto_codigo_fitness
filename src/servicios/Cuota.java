@@ -3,54 +3,36 @@ package servicios;
 import java.util.Objects;
 
 public class Cuota extends Servicio{
-    private int duracionMeses;
-    private double precioMensual;
-    private String tipo;
-    private boolean activo;
+        public enum Periodo { MENSUAL, TRIMESTRAL, ANUAL }
+        private Periodo periodo;
+        private double precio;
 
-    public Cuota(int idServicio, String nombre, double precioBase, boolean activo, int duracionMeses, double precioMensual, String tipo, boolean activo1) {
-        super(idServicio, nombre, precioBase, activo);
-        this.duracionMeses = duracionMeses;
-        this.precioMensual = precioMensual;
-        this.tipo = tipo;
-        this.activo = activo1;
+    public Cuota(int idServicio, String nombre, boolean activo, Periodo periodo, double precio) {
+        super(idServicio, nombre, activo);
+        this.periodo = periodo;
+        this.precio = precio;
     }
+
 
     public Cuota() {
+        super();
     }
 
-    public int getDuracionMeses() {
-        return duracionMeses;
+
+    public Periodo getPeriodo() {
+        return periodo;
     }
 
-    public void setDuracionMeses(int duracionMeses) {
-        this.duracionMeses = duracionMeses;
+    public void setPeriodo(Periodo periodo) {
+        this.periodo = periodo;
     }
 
-    public double getPrecioMensual() {
-        return precioMensual;
+    public double getPrecio() {
+        return precio;
     }
 
-    public void setPrecioMensual(double precioMensual) {
-        this.precioMensual = precioMensual;
-    }
-
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
-
-    @Override
-    public boolean isActivo() {
-        return activo;
-    }
-
-    @Override
-    public void setActivo(boolean activo) {
-        this.activo = activo;
+    public void setPrecio(double precio) {
+        this.precio = precio;
     }
 
     @Override
@@ -58,21 +40,19 @@ public class Cuota extends Servicio{
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         Cuota cuota = (Cuota) o;
-        return duracionMeses == cuota.duracionMeses && Double.compare(precioMensual, cuota.precioMensual) == 0 && activo == cuota.activo && Objects.equals(tipo, cuota.tipo);
+        return Double.compare(precio, cuota.precio) == 0 && periodo == cuota.periodo;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), duracionMeses, precioMensual, tipo, activo);
+        return Objects.hash(super.hashCode(), periodo, precio);
     }
 
     @Override
     public String toString() {
         return "Cuota{" +
-                "duracionMeses=" + duracionMeses +
-                ", precioMensual=" + precioMensual +
-                ", tipo='" + tipo + '\'' +
-                ", activo=" + activo +
+                "periodo=" + periodo +
+                ", precio=" + precio +
                 '}';
     }
 }
