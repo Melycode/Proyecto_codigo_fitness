@@ -59,3 +59,4 @@ public class Servicio {
         return "Servicio: " + nombre + " (ID: " + idServicio + ") [" + (activo ? "Activo" : "Inactivo") + "]";
     }
 }
+
