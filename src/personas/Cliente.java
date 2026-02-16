@@ -18,13 +18,6 @@ public class Cliente extends Persona {
         this.activo = activo;
     }
 
-    public Cliente(String idCliente, TipoMembresia tipoMembresia, double saldo, boolean activo) {
-        super();
-        this.idCliente = idCliente;
-        this.tipoMembresia = tipoMembresia;
-        this.saldo = saldo;
-        this.activo = activo;
-    }
 
     public Cliente() {
         super();
