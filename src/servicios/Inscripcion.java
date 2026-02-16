@@ -112,15 +112,6 @@ public class Inscripcion extends Servicio {
         return null;
     }
 
-    public Inscripcion buscarPorId(String idInscripcion) {
-        for (Inscripcion i : listaInscripciones) {
-            if (i.getIdInscripcion().equalsIgnoreCase(idInscripcion)) {
-                return i;
-            }
-        }
-        return null;
-    }
-
     public boolean modificarCuota(String dni, Cuota nuevaCuota) {
         Inscripcion ins = buscarPorDNI(dni);
         if (ins != null && nuevaCuota != null) {
@@ -151,16 +142,6 @@ public class Inscripcion extends Servicio {
         return false;
     }
 
-
-    public boolean eliminarInscripcionPorId(String idInscripcion) {
-        Inscripcion ins = buscarPorId(idInscripcion);
-        if (ins != null) {
-            listaInscripciones.remove(ins);
-            conjuntoInscripciones.remove(ins);
-            return true;
-        }
-        return false;
-    }
 
 
     @Override
