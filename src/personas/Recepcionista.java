@@ -11,7 +11,7 @@ public class Recepcionista extends Persona {
     private String idiomas;
     private boolean turnoExtra;
     private double bonus;
-    private HashMap<Cliente, ArrayList<Cuota>> registroCuotasClientes;
+    private HashMap<Cliente, ArrayList<Cuota>> registroCuotasClientes = new  HashMap<>();
 
     public Recepcionista(String nombre, String dni, int edad, Sexo sexo, int mostrador, String idiomas, boolean turnoExtra, double bonus, HashMap<Cliente, ArrayList<Cuota>> registroCuotasClientes) {
         super(nombre, dni, edad, sexo);
@@ -21,7 +21,7 @@ public class Recepcionista extends Persona {
         this.bonus = bonus;
         this.registroCuotasClientes = registroCuotasClientes;
     }
-    
+
     public Recepcionista() {
     }
 
@@ -77,7 +77,41 @@ public class Recepcionista extends Persona {
     public int hashCode() {
         return Objects.hash(super.hashCode(), mostrador, idiomas, turnoExtra, bonus, registroCuotasClientes);
     }
-    
+
+    public void agregarCuota(Cliente cliente, Cuota nuevaCuota) {
+        registroCuotasClientes.computeIfAbsent(cliente, k -> new ArrayList<>()).add(nuevaCuota);
+        System.out.println("Cuota agregada a: " + cliente.getNombre());
+    }
+
+    public ArrayList<Cuota> buscarHistorial(String dni) {
+        for (Cliente c : registroCuotasClientes.keySet()) {
+            if (c.getDni().equals(dni)) {
+                return registroCuotasClientes.get(c);
+            }
+        }
+        return null;
+    }
+
+    public void eliminarRegistroCliente(String dni) {
+        Cliente clienteEncontrado = buscarClientePorDni(dni);
+        if (clienteEncontrado != null) {
+            registroCuotasClientes.remove(clienteEncontrado);
+        }
+    }
+
+    public void modificarEstadoCuota(String dni, int indiceCuota, boolean nuevoEstado) {
+        ArrayList<Cuota> cuotas = buscarHistorial(dni);
+        if (cuotas != null && indiceCuota < cuotas.size()) {
+            cuotas.get(indiceCuota).setActivo(nuevoEstado);
+        }
+    }
+
+    private Cliente buscarClientePorDni(String dni) {
+        return registroCuotasClientes.keySet().stream()
+                .filter(c -> c.getDni().equals(dni))
+                .findFirst().orElse(null);
+    }
+
     @Override
     public String toString() {
         return "Recepcionista{" +

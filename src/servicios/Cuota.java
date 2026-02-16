@@ -50,9 +50,7 @@ public class Cuota extends Servicio{
 
     @Override
     public String toString() {
-        return "Cuota{" +
-                "periodo=" + periodo +
-                ", precio=" + precio +
-                '}';
+        return String.format("Cuota: %s | Estado: %s | Total: %.2f",
+                getNombre(), (activo ? "Activo" : "Vencido"), precio);
     }
 }

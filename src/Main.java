@@ -1,6 +1,7 @@
 import personas.Entrenador;
 import personas.Persona;
 import personas.Cliente;
+import personas.Recepcionista;
 import servicios.Clase;
 import servicios.Cuota;
 import servicios.Inscripcion;
@@ -61,5 +62,18 @@ public class Main {
 
         Inscripcion eliminada = gestor.buscarPorDNI(c1.getDni());
         System.out.println(eliminada == null ? c1.getNombre() + " ya no está inscrito." : "Error: " + c1.getNombre() + " sigue en la lista.");
+
+        System.out.println("------------PRUEBA RECEPCIONISTA------------");
+        Recepcionista recepcionista = new Recepcionista();
+        recepcionista.agregarCuota(c1, cuotaMensual);
+        recepcionista.agregarCuota(c2, cuotaAnual);
+
+        System.out.println("--- Historial de " + c1.getNombre() + " ---");
+        ArrayList<Cuota> historialMilan = recepcionista.buscarHistorial(c1.getDni());
+        if (historialMilan != null) {
+            historialMilan.forEach(cuota -> System.out.println(cuota));
+        }
+
     }
+
 }
