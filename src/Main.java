@@ -14,6 +14,8 @@ import java.util.HashSet;
 public class Main {
     public static void main(String[] args) {
         Inscripcion gestor = new Inscripcion();
+        Entrenador entrenador1 = new Entrenador("Manuel Ruiz", "49166034S", 35, Persona.Sexo.HOMBRE, Entrenador.Especialidad.YOGA, 15, true, 150.0, new ArrayList<>());
+        Entrenador entrenador2 = new Entrenador("Maria Montero", "16604934T", 28, Persona.Sexo.MUJER, Entrenador.Especialidad.MUSCULACION, 5, true, 100.0, new ArrayList<>());
 
         Cuota cuotaMensual = new Cuota(1, "Plan Fitness", true, Cuota.Periodo.MENSUAL, 45.0);
         Cuota cuotaAnual = new Cuota(2, "Plan Oro", true, Cuota.Periodo.ANUAL, 400.0);
