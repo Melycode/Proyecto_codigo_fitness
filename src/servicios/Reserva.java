@@ -39,7 +39,7 @@ public class Reserva extends Servicio{
         this.clase = clase;
     }
 
-    public LocalDate getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
@@ -70,11 +70,11 @@ public class Reserva extends Servicio{
 
     @Override
     public String toString() {
-        return "Reserva{" +
-                "cliente=" + cliente +
-                ", clase=" + clase +
-                ", fecha=" + fecha +
-                ", confirmada=" + confirmada +
-                '}';
+        String estado = confirmada ? "CONFIRMADA" : "PENDIENTE";
+        return String.format("RESERVA [%s] | Cliente: %s | Clase: %s | Fecha: %s",
+                estado,
+                cliente.getNombre(),
+                clase.getNombre(),
+                fecha);
     }
 }

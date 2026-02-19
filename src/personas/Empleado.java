@@ -136,11 +136,11 @@ public class Empleado extends Persona {
 
     @Override
     public String toString() {
-        return "Empleado{" +
-                "salario=" + salario +
-                ", turno=" + turno +
-                ", fechaContratacion='" + fechaContratacion + '\'' +
-                ", activo=" + activo +
-                '}';
+        String estado = activo ? "Activo" : "Inactivo";
+        return "EMPLEADO: " + getNombre() +
+                " | Turno: " + turno +
+                " | Salario: " + salario + "€" +
+                " | Estado: " + estado +
+                " | Cambios de turno: " + historialTurnos.size();
     }
 }
