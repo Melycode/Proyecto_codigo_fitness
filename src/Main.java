@@ -26,6 +26,15 @@ public class Main {
         Inscripcion i1 = new Inscripcion(1, "Inscripción 1", true, "INS-001", c1, cuotaMensual, "2026-02-15", true);
         Inscripcion i2 = new Inscripcion(2, "Inscripción 2", true, "INS-002", c2, cuotaAnual, "2026-02-15", false);
 
+
+        Maquina maquina1 =new Maquina(01, "Musculación", true, "Multiestación Homcom1", Maquina.EstadoMaquina.OPERATIVA, 175.0, false,  new HashMap<LocalDate, Maquina.EstadoMaquina>());
+        Maquina maquina2 = new  Maquina(02, "Musculación", true, "Prensa piernas", Maquina.EstadoMaquina.AVERIADA, 315.0, false, new HashMap<LocalDate, Maquina.EstadoMaquina>());
+
+
+        Clase clase1 = new Clase(03, "Talleres", true, personas.Entrenador.Especialidad.YOGA, Clase.NivelDificultad.INTERMEDIO, 60, 15.50);
+        Clase clase2 =  new Clase(04, "Musculación", true, Entrenador.Especialidad.YOGA, Clase.NivelDificultad.INTERMEDIO, 60, 15.50);
+
+
         System.out.println(gestor.agregarInscripcion(i1) ?
                 i1.getCliente().getNombre() + " ha sido inscrito." :
                 i1.getCliente().getNombre() + " ya está inscrito.");
