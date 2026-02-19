@@ -4,8 +4,8 @@ import java.util.Objects;
 
 public class Servicio {
     private int idServicio;
-    private String nombre;
-    private boolean activo;
+    protected String nombre;
+    protected boolean activo;
 
     public Servicio(int idServicio, String nombre, boolean activo) {
         this.idServicio = idServicio;
@@ -59,3 +59,4 @@ public class Servicio {
         return "Servicio: " + nombre + " (ID: " + idServicio + ") [" + (activo ? "Activo" : "Inactivo") + "]";
     }
 }
+
