@@ -1,10 +1,16 @@
 package personas;
 
+import servicios.Cuota;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class Recepcionista extends Persona {
     private int mostrador;
     private String idiomas;
     private boolean turnoExtra;
     private double bonus;
+    private HashMap<Cliente, ArrayList<Cuota>> registroCuotasClientes;
 
     public Recepcionista(String nombre, String dni, int edad, Sexo sexo, int mostrador, String idiomas, boolean turnoExtra, double bonus) {
         super(nombre, dni, edad, sexo);
