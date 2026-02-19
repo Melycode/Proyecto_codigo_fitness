@@ -109,7 +109,6 @@ public class Maquina extends Servicio {
         return false;
     }
 
-
     public boolean borrarEstado(LocalDate fecha) {
         return this.historialEstados.remove(fecha) != null;
     }
@@ -117,12 +116,6 @@ public class Maquina extends Servicio {
 
     @Override
     public String toString() {
-        return "Maquina{" +
-                "nombreMaquina='" + nombreMaquina + '\'' +
-                ", estado=" + estado +
-                ", horasUso=" + horasUso +
-                ", mantenimiento=" + mantenimiento +
-                ", historialEstados=" + historialEstados +
-                '}';
+        return  nombreMaquina + '\'' + estado + "debido a que ha sido usada " + horasUso + " y ahora está " + mantenimiento;
     }
 }
