@@ -5,13 +5,13 @@ import java.util.Objects;
 
 public class Empleado extends Persona {
     public enum Turno { MANANA, TARDE, NOCHE }
-    private double salario;
     private Turno turno;
+    private double salario;
     private String fechaContratacion;
     private boolean activo;
     private ArrayList<Turno> historialTurnos = new ArrayList<>();
 
-    public Empleado(String nombre, String dni, int edad, Sexo sexo, double salario, Turno turno, String fechaContratacion, boolean activo, ArrayList<Turno> historialTurnos) {
+    public Empleado(String nombre, String dni, int edad, Sexo sexo, Turno turno, double salario,  String fechaContratacion, boolean activo, ArrayList<Turno> historialTurnos) {
         super(nombre, dni, edad, sexo);
         this.salario = salario;
         this.turno = turno;

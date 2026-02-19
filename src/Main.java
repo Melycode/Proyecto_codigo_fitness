@@ -1,11 +1,6 @@
-import personas.Entrenador;
-import personas.Persona;
-import personas.Cliente;
-import personas.Recepcionista;
-import servicios.Clase;
-import servicios.Cuota;
-import servicios.Inscripcion;
-import servicios.Maquina;
+import personas.*;
+import servicios.*;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -14,6 +9,9 @@ import java.util.HashSet;
 public class Main {
     public static void main(String[] args) {
         Inscripcion gestor = new Inscripcion();
+        Empleado empleado1 = new Empleado("Melissa Guerrero", "50302218M", 46, Persona.Sexo.MUJER, Empleado.Turno.TARDE, 1760.0, "12-02-2018", true, new ArrayList<>());
+        Empleado empleado2 = new Empleado("Diego Pérez", "40236607D", 40, Persona.Sexo.HOMBRE, Empleado.Turno.MANANA, 1800.0, "06-12-2022",true, new ArrayList<>());
+
         Entrenador entrenador1 = new Entrenador("Manuel Ruiz", "49166034S", 35, Persona.Sexo.HOMBRE, Entrenador.Especialidad.YOGA, 15, true, 150.0, new ArrayList<>());
         Entrenador entrenador2 = new Entrenador("Maria Montero", "16604934T", 28, Persona.Sexo.MUJER, Entrenador.Especialidad.MUSCULACION, 5, true, 100.0, new ArrayList<>());
 
@@ -25,6 +23,9 @@ public class Main {
 
         Inscripcion i1 = new Inscripcion(1, "Inscripción 1", true, "INS-001", c1, cuotaMensual, "2026-02-15", true);
         Inscripcion i2 = new Inscripcion(2, "Inscripción 2", true, "INS-002", c2, cuotaAnual, "2026-02-15", false);
+
+        Reserva reserva1 = new Reserva(1, "Musculacion", true, c1, clase1, "10-02-2026", true );
+        Reserva reserva2 = new Reserva(2, "Yoga", true, c2, clase2, "11-02-2026",true);
 
         System.out.println(gestor.agregarInscripcion(i1) ?
                 i1.getCliente().getNombre() + " ha sido inscrito." :

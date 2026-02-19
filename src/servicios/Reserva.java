@@ -8,10 +8,10 @@ import java.util.Objects;
 public class Reserva extends Servicio{
     private Cliente cliente;
     private Clase clase;
-    private LocalDate fecha;
+    private String fecha;
     private boolean confirmada;
 
-    public Reserva(int idServicio, String nombre, boolean activo, Cliente cliente, Clase clase, LocalDate fecha, boolean confirmada) {
+    public Reserva(int idServicio, String nombre, boolean activo, Cliente cliente, Clase clase, String fecha, boolean confirmada) {
         super(idServicio, nombre, activo);
         this.cliente = cliente;
         this.clase = clase;
@@ -43,7 +43,7 @@ public class Reserva extends Servicio{
         return fecha;
     }
 
-    public void setFecha(LocalDate fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 
