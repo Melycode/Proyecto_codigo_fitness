@@ -10,11 +10,6 @@ public class Main {
     public static void main(String[] args) {
         Inscripcion gestor = new Inscripcion();
 
-        Empleado empleado1 = new Empleado("Melissa Guerrero", "50302218M", 46, Persona.Sexo.MUJER, Empleado.Turno.TARDE, 1760.0, "12-02-2018", true, new ArrayList<>());
-        Empleado empleado2 = new Empleado("Diego Pérez", "40236607D", 40, Persona.Sexo.HOMBRE, Empleado.Turno.MANANA, 1800.0, "06-12-2022",true, new ArrayList<>());
-
-        Entrenador entrenador1 = new Entrenador("Manuel Ruiz", "49166034S", 35, Persona.Sexo.HOMBRE, Entrenador.Especialidad.YOGA, 15, true, 150.0, new ArrayList<>());
-        Entrenador entrenador2 = new Entrenador("Maria Montero", "16604934T", 28, Persona.Sexo.MUJER, Entrenador.Especialidad.MUSCULACION, 5, true, 100.0, new ArrayList<>());
 
         Cuota cuotaMensual = new Cuota(1, "Plan Fitness", true, Cuota.Periodo.MENSUAL, 45.0);
         Cuota cuotaAnual = new Cuota(2, "Plan Oro", true, Cuota.Periodo.ANUAL, 400.0);
@@ -26,8 +21,6 @@ public class Main {
         Inscripcion i2 = new Inscripcion(2, "Inscripción 2", true, "INS-002", c2, cuotaAnual, "2026-02-15", false);
 
 
-        Cuota cuota1 = new Cuota(3, "Salario", true, Cuota.Periodo.MENSUAL, 45.0 );
-        Cuota cuota2 = new Cuota(4, "Salario", true, Cuota.Periodo.ANUAL, 400.0);
 
         System.out.println(gestor.agregarInscripcion(i1) ?
                 i1.getCliente().getNombre() + " ha sido inscrito." :
