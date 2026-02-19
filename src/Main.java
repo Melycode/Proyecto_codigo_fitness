@@ -1,6 +1,8 @@
 import personas.*;
-import servicios.*;
-
+import servicios.Clase;
+import servicios.Cuota;
+import servicios.Inscripcion;
+import servicios.Maquina;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -9,7 +11,11 @@ import java.util.HashSet;
 public class Main {
     public static void main(String[] args) {
         Inscripcion gestor = new Inscripcion();
+        Empleado empleado1 = new Empleado("Melissa Guerrero", "50302218M", 46, Persona.Sexo.MUJER, Empleado.Turno.TARDE, 1760.0, "12-02-2018", true, new ArrayList<>());
+        Empleado empleado2 = new Empleado("Diego Pérez", "40236607D", 40, Persona.Sexo.HOMBRE, Empleado.Turno.MANANA, 1800.0, "06-12-2022",true, new ArrayList<>());
 
+        Entrenador entrenador1 = new Entrenador("Manuel Ruiz", "49166034S", 35, Persona.Sexo.HOMBRE, Entrenador.Especialidad.YOGA, 15, true, 150.0, new ArrayList<>());
+        Entrenador entrenador2 = new Entrenador("Maria Montero", "16604934T", 28, Persona.Sexo.MUJER, Entrenador.Especialidad.MUSCULACION, 5, true, 100.0, new ArrayList<>());
 
         Cuota cuotaMensual = new Cuota(1, "Plan Fitness", true, Cuota.Periodo.MENSUAL, 45.0);
         Cuota cuotaAnual = new Cuota(2, "Plan Oro", true, Cuota.Periodo.ANUAL, 400.0);
@@ -20,6 +26,9 @@ public class Main {
         Inscripcion i1 = new Inscripcion(1, "Inscripción 1", true, "INS-001", c1, cuotaMensual, "2026-02-15", true);
         Inscripcion i2 = new Inscripcion(2, "Inscripción 2", true, "INS-002", c2, cuotaAnual, "2026-02-15", false);
 
+        HashMap<Cliente, ArrayList<Cuota>> registroVacio = new HashMap<>();
+        Recepcionista r1 = new Recepcionista("Napoleón", "77975690D", 51, Persona.Sexo.HOMBRE, 3, "Francés", true, 150.0, registroVacio);
+        Recepcionista r2 = new Recepcionista("Barney", "77975690F", 69, Persona.Sexo.OTRO, 2, "Inglés", false, 300.0, registroVacio);
 
 
         System.out.println(gestor.agregarInscripcion(i1) ?
@@ -61,7 +70,7 @@ public class Main {
         Inscripcion eliminada = gestor.buscarPorDNI(c1.getDni());
         System.out.println(eliminada == null ? c1.getNombre() + " ya no está inscrito." : "Error: " + c1.getNombre() + " sigue en la lista.");
 
-        System.out.println("------------PRUEBA RECEPCIONISTA------------");
+        System.out.println("-------------PRUEBA RECEPCIONISTA------------");
         Recepcionista recepcionista = new Recepcionista();
         recepcionista.agregarCuota(c1, cuotaMensual);
         recepcionista.agregarCuota(c2, cuotaAnual);
