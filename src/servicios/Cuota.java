@@ -50,7 +50,11 @@ public class Cuota extends Servicio{
 
     @Override
     public String toString() {
-        return String.format("Cuota: %s | Estado: %s | Total: %.2f",
-                getNombre(), (activo ? "Activo" : "Vencido"), precio);
+        String estado = isActivo() ? "ACTIVA" : "INACTIVA";
+        return String.format("CUOTA: %s [%s] | Periodo: %s | Precio: %.2f€",
+                getNombre(),
+                estado,
+                periodo,
+                precio);
     }
 }

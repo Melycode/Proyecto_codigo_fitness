@@ -8,10 +8,10 @@ import java.util.Objects;
 public class Reserva extends Servicio{
     private Cliente cliente;
     private Clase clase;
-    private LocalDate fecha;
+    private String fecha;
     private boolean confirmada;
 
-    public Reserva(int idServicio, String nombre, boolean activo, Cliente cliente, Clase clase, LocalDate fecha, boolean confirmada) {
+    public Reserva(int idServicio, String nombre, boolean activo, Cliente cliente, Clase clase, String fecha, boolean confirmada) {
         super(idServicio, nombre, activo);
         this.cliente = cliente;
         this.clase = clase;
@@ -39,11 +39,11 @@ public class Reserva extends Servicio{
         this.clase = clase;
     }
 
-    public LocalDate getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(LocalDate fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 
@@ -70,11 +70,11 @@ public class Reserva extends Servicio{
 
     @Override
     public String toString() {
-        return "Reserva{" +
-                "cliente=" + cliente +
-                ", clase=" + clase +
-                ", fecha=" + fecha +
-                ", confirmada=" + confirmada +
-                '}';
+        String estado = confirmada ? "CONFIRMADA" : "PENDIENTE";
+        return String.format("RESERVA [%s] | Cliente: %s | Clase: %s | Fecha: %s",
+                estado,
+                cliente.getNombre(),
+                clase.getNombre(),
+                fecha);
     }
 }

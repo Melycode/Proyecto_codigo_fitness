@@ -106,11 +106,9 @@ public class Entrenador extends Persona {
 
     @Override
     public String toString() {
-        return "Entrenador{" +
-                "especialidad=" + especialidad +
-                ", aniosExperiencia=" + aniosExperiencia +
-                ", disponible=" + disponible +
-                ", sueldoExtra=" + sueldoExtra +
-                '}';
+        return "ENTRENADOR: " + getNombre() +
+                " | Especialidad: " + especialidad +
+                " | Experiencia: " + aniosExperiencia + " años" +
+                " | Clases asignadas: " + clasesAsignadas.size();
     }
 }
