@@ -30,6 +30,15 @@ public class Main {
         Recepcionista r1 = new Recepcionista("Napoleón", "77975690D", 51, Persona.Sexo.HOMBRE, 3, "Francés", true, 150.0, registroVacio);
         Recepcionista r2 = new Recepcionista("Barney", "77975690F", 69, Persona.Sexo.OTRO, 2, "Inglés", false, 300.0, registroVacio);
 
+        Maquina maquina1 =new Maquina(01, "Musculación", true, "Multiestación Homcom1", Maquina.EstadoMaquina.OPERATIVA, 175.0, false,  new HashMap<LocalDate, Maquina.EstadoMaquina>());
+        Maquina maquina2 = new  Maquina(02, "Musculación", true, "Prensa piernas", Maquina.EstadoMaquina.AVERIADA, 315.0, false, new HashMap<LocalDate, Maquina.EstadoMaquina>());
+
+
+        Clase clase1 = new Clase(03, "Talleres", true, personas.Entrenador.Especialidad.YOGA, Clase.NivelDificultad.INTERMEDIO, 60, 15.50);
+        Clase clase2 =  new Clase(04, "Musculación", true, Entrenador.Especialidad.YOGA, Clase.NivelDificultad.INTERMEDIO, 60, 15.50);
+
+
+
 
         System.out.println(gestor.agregarInscripcion(i1) ?
                 i1.getCliente().getNombre() + " ha sido inscrito." :
