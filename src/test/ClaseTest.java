@@ -7,13 +7,12 @@ import personas.Cliente;
 import personas.Entrenador;
 import personas.Persona;
 import servicios.Clase;
-
 import static org.junit.jupiter.api.Assertions.*;
 
+// Tests de la clase Clase
 public class ClaseTest {
 
-    private static final int CAPACIDAD_MAXIMA = 2;
-
+    // Test que comprueba que getNombre() devuelve el nombre correcto de la clase
     @Test
     public void testGetNombreClase() {
         Clase clase = new Clase(1, "Yoga Matutino", true, Entrenador.Especialidad.YOGA,
@@ -21,6 +20,7 @@ public class ClaseTest {
         assertEquals("Yoga Matutino", clase.getNombre());
     }
 
+    // Test que comprueba que getPrecio() devuelve el precio correcto
     @Test
     public void testGetPrecio() {
         Clase clase = new Clase(1, "Yoga Matutino", true, Entrenador.Especialidad.YOGA,
@@ -28,6 +28,7 @@ public class ClaseTest {
         assertEquals(15.0, clase.getPrecio());
     }
 
+    // Test que comprueba que la clase está activa al crearla con activo=true
     @Test
     public void testClaseActiva() {
         Clase clase = new Clase(1, "Yoga Matutino", true, Entrenador.Especialidad.YOGA,
@@ -35,6 +36,7 @@ public class ClaseTest {
         assertTrue(clase.isActivo());
     }
 
+    // Test que comprueba que agregarCliente() funciona correctamente con especialidad y nivel correctos
     @Test
     public void testAgregarClienteCorrecto() {
         Clase clase = new Clase(1, "Yoga Matutino", true, Entrenador.Especialidad.YOGA,
@@ -47,6 +49,7 @@ public class ClaseTest {
         assertEquals(1, clase.getListClientes().size());
     }
 
+    // Test que comprueba que buscarCliente() encuentra al cliente por su ID
     @Test
     public void testBuscarClienteExistente() {
         Clase clase = new Clase(1, "Yoga Matutino", true, Entrenador.Especialidad.YOGA,
@@ -59,6 +62,7 @@ public class ClaseTest {
         assertEquals("Nacho Torres", encontrado.getNombre());
     }
 
+    // Test que comprueba que eliminarCliente() borra al cliente y la lista queda vacía
     @Test
     public void testEliminarClienteExistente() {
         Clase clase = new Clase(1, "Yoga Matutino", true, Entrenador.Especialidad.YOGA,
@@ -71,6 +75,7 @@ public class ClaseTest {
         assertEquals(0, clase.getListClientes().size());
     }
 
+    // TEST NEGATIVO: agregar cliente con especialidad incorrecta debe devolver false
     @Test
     public void testAgregarClienteEspecialidadIncorrecta() {
         Clase clase = new Clase(1, "Yoga Matutino", true, Entrenador.Especialidad.YOGA,
@@ -82,6 +87,7 @@ public class ClaseTest {
         assertFalse(resultado);
     }
 
+    // TEST NEGATIVO: agregar cliente con nivel incorrecto debe devolver false
     @Test
     public void testAgregarClienteNivelIncorrecto() {
         Clase clase = new Clase(1, "Yoga Matutino", true, Entrenador.Especialidad.YOGA,
@@ -93,6 +99,7 @@ public class ClaseTest {
         assertFalse(resultado);
     }
 
+    // TEST NEGATIVO: buscar un cliente inexistente debe lanzar ClienteNoEncontradoException
     @Test
     public void testBuscarClienteNoExistente() {
         Clase clase = new Clase(1, "Yoga Matutino", true, Entrenador.Especialidad.YOGA,
@@ -105,6 +112,7 @@ public class ClaseTest {
         });
     }
 
+    // TEST NEGATIVO: cuando la clase está llena se lanza CapacidadMaximaException
     @Test
     public void testCapacidadMaximaAlcanzada() {
         Clase clase = new Clase(1, "Yoga Matutino", true, Entrenador.Especialidad.YOGA,
@@ -113,15 +121,17 @@ public class ClaseTest {
                 "C003", Cliente.TipoMembresia.BASICA, 100.0, true);
         Cliente cliente2 = new Cliente("Isa Fernández", "44444444D", 27, Persona.Sexo.MUJER,
                 "C004", Cliente.TipoMembresia.VIP, 300.0, true);
+        int capacidadMaxima = 2;
         clase.agregarCliente(cliente1, Entrenador.Especialidad.YOGA, Clase.NivelDificultad.PRINCIPIANTE);
         clase.agregarCliente(cliente2, Entrenador.Especialidad.YOGA, Clase.NivelDificultad.PRINCIPIANTE);
         assertThrows(CapacidadMaximaException.class, () -> {
-            if (clase.getListClientes().size() >= CAPACIDAD_MAXIMA) {
-                throw new CapacidadMaximaException(CAPACIDAD_MAXIMA);
+            if (clase.getListClientes().size() >= capacidadMaxima) {
+                throw new CapacidadMaximaException(capacidadMaxima);
             }
         });
     }
 
+    // TEST NEGATIVO: agregar el mismo cliente dos veces debe devolver false la segunda vez
     @Test
     public void testAgregarClienteDuplicado() {
         Clase clase = new Clase(1, "Yoga Matutino", true, Entrenador.Especialidad.YOGA,
