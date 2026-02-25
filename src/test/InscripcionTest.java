@@ -1,5 +1,4 @@
 package test;
-
 import Excepciones.ClienteNoEncontradoException;
 import Excepciones.PagoYaRealizadoException;
 import org.junit.jupiter.api.Test;
@@ -18,7 +17,7 @@ public class InscripcionTest {
         Inscripcion.getConjuntoInscripciones().clear();
     }
 
-    // Test que comprueba que agregarInscripcion() añade la inscripción correctamente
+    // Comprueba que agregarInscripcion() añade la inscripción correctamente
     @Test
     public void testAgregarInscripcionCorrectamente() {
         limpiarListas();
@@ -32,7 +31,7 @@ public class InscripcionTest {
         assertEquals(1, Inscripcion.getListaInscripciones().size());
     }
 
-    // Test que comprueba que buscarPorDNI() encuentra la inscripción correcta
+    // Comprueba que buscarPorDNI() encuentra la inscripción correcta
     @Test
     public void testBuscarInscripcionPorDNIExistente() {
         limpiarListas();
@@ -47,7 +46,7 @@ public class InscripcionTest {
         assertEquals("INS001", encontrada.getIdInscripcion());
     }
 
-    // Test que comprueba que modificarCuota() cambia la cuota de la inscripción correctamente
+    // Comprueba que modificarCuota() cambia la cuota de la inscripción correctamente
     @Test
     public void testModificarCuota() {
         limpiarListas();
@@ -63,7 +62,7 @@ public class InscripcionTest {
         assertEquals(cuota2, gestora.buscarPorDNI("55555555E").getCuota());
     }
 
-    // Test que comprueba que modificarEstadoPago() actualiza el estado de pago correctamente
+    // Comprueba que modificarEstadoPago() actualiza el estado de pago correctamente
     @Test
     public void testModificarEstadoPago() {
         limpiarListas();
@@ -78,7 +77,7 @@ public class InscripcionTest {
         assertTrue(gestora.buscarPorDNI("55555555E").isPagado());
     }
 
-    // Test que comprueba que eliminarInscripcionPorDNI() borra la inscripción correctamente
+    // Comprueba que eliminarInscripcionPorDNI() borra la inscripción correctamente
     @Test
     public void testEliminarInscripcion() {
         limpiarListas();
@@ -93,7 +92,7 @@ public class InscripcionTest {
         assertEquals(0, Inscripcion.getListaInscripciones().size());
     }
 
-    // Test que comprueba que se pueden agregar dos inscripciones de clientes distintos
+    // Comprueba que se pueden agregar dos inscripciones de clientes distintos
     @Test
     public void testAgregarDosInscripciones() {
         limpiarListas();
@@ -110,7 +109,7 @@ public class InscripcionTest {
         assertEquals(2, Inscripcion.getListaInscripciones().size());
     }
 
-    // TEST NEGATIVO: agregar una inscripción con el mismo DNI debe devolver false
+    // NEGATIVO: agregar una inscripción con el mismo DNI debe devolver false
     @Test
     public void testAgregarInscripcionDuplicada() {
         limpiarListas();
@@ -125,7 +124,7 @@ public class InscripcionTest {
         assertFalse(resultado);
     }
 
-    // TEST NEGATIVO: buscar por DNI inexistente debe lanzar ClienteNoEncontradoException
+    // NEGATIVO: buscar por DNI inexistente debe lanzar ClienteNoEncontradoException
     @Test
     public void testBuscarDNINoExistente() {
         limpiarListas();
@@ -133,12 +132,12 @@ public class InscripcionTest {
         assertThrows(ClienteNoEncontradoException.class, () -> {
             Inscripcion encontrada = gestora.buscarPorDNI("00000000Z");
             if (encontrada == null) {
-                throw new ClienteNoEncontradoException("00000000Z");
+                throw new ClienteNoEncontradoException();
             }
         });
     }
 
-    // TEST NEGATIVO: intentar pagar una inscripción ya pagada debe lanzar PagoYaRealizadoException
+    // NEGATIVO: intentar pagar una inscripción ya pagada debe lanzar PagoYaRealizadoException
     @Test
     public void testPagarInscripcionYaPagada() {
         limpiarListas();
@@ -151,12 +150,12 @@ public class InscripcionTest {
         assertThrows(PagoYaRealizadoException.class, () -> {
             Inscripcion encontrada = gestora.buscarPorDNI("55555555E");
             if (encontrada != null && encontrada.isPagado()) {
-                throw new PagoYaRealizadoException(encontrada.getIdInscripcion());
+                throw new PagoYaRealizadoException();
             }
         });
     }
 
-    // TEST NEGATIVO: eliminar una inscripción con DNI inexistente debe devolver false
+    // NEGATIVO: eliminar una inscripción con DNI inexistente debe devolver false
     @Test
     public void testEliminarInscripcionNoExistente() {
         limpiarListas();
@@ -165,7 +164,7 @@ public class InscripcionTest {
         assertFalse(resultado);
     }
 
-    // TEST NEGATIVO: agregar una inscripción null debe devolver false
+    // NEGATIVO: agregar una inscripción null debe devolver false
     @Test
     public void testAgregarInscripcionNull() {
         limpiarListas();
