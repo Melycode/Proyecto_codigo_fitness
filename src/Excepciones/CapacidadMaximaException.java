@@ -1,7 +1,7 @@
 package Excepciones;
 
 public class CapacidadMaximaException extends Exception {
-    public CapacidadMaximaException(String message) {
+    public CapacidadMaximaException(int message) {
         super(message);
     }
 }
