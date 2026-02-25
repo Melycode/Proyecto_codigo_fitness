@@ -5,12 +5,15 @@ import personas.Cliente;
 import java.time.LocalDate;
 import java.util.Objects;
 
-public class Reserva extends Servicio{
+// Clase que representa una reserva de un cliente para una clase, extiende de Servicio
+public class Reserva extends Servicio {
+
     private Cliente cliente;
     private Clase clase;
     private String fecha;
     private boolean confirmada;
 
+    // Constructor completo
     public Reserva(int idServicio, String nombre, boolean activo, Cliente cliente, Clase clase, String fecha, boolean confirmada) {
         super(idServicio, nombre, activo);
         this.cliente = cliente;
@@ -19,10 +22,12 @@ public class Reserva extends Servicio{
         this.confirmada = confirmada;
     }
 
+    // Constructor vacío
     public Reserva() {
         super();
     }
 
+    // Getters y setters
     public Cliente getCliente() {
         return cliente;
     }
@@ -55,6 +60,7 @@ public class Reserva extends Servicio{
         this.confirmada = confirmada;
     }
 
+    // equals y hashCode
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
@@ -68,6 +74,7 @@ public class Reserva extends Servicio{
         return Objects.hash(super.hashCode(), cliente, clase, fecha, confirmada);
     }
 
+    // Devuelve los datos principales de la reserva en formato texto
     @Override
     public String toString() {
         String estado = confirmada ? "CONFIRMADA" : "PENDIENTE";

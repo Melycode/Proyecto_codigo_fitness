@@ -90,6 +90,73 @@ public class Main {
             historialMilan.forEach(cuota -> System.out.println(cuota));
         }
 
+        System.out.println("------------- PRUEBA ENTRENADOR ------------");
+    // asignarClase (no devuelve nada)
+        entrenador1.asignarClase(clase1);
+        System.out.println("Tras asignarClase): " + entrenador1);
+
+    // anadirClase (devuelve boolean)
+        System.out.println("Añadir clase2 a entrenador1: " + entrenador1.anadirClase(clase2));
+        System.out.println("Tras anadirClase: " + entrenador1);
+
+        // buscarClase
+        int indice = entrenador1.buscarClase(clase1);
+        System.out.println("Índice de clase1 en entrenador1: " + indice);
+        System.out.println("Índice de clase no existente: " + entrenador1.buscarClase(new Clase(99, "Test", false, Entrenador.Especialidad.CARDIO, Clase.NivelDificultad.INTERMEDIO, 45, 10.0)));
+
+        // modificarClase
+        Clase claseNueva = new Clase(05, "Cardio", true, Entrenador.Especialidad.CARDIO, Clase.NivelDificultad.AVANZADO, 45, 20.0);
+        System.out.println("Modificar clase en índice 0: " + entrenador1.modificarClase(0, claseNueva));
+        System.out.println("Modificar índice inválido (-1): " + entrenador1.modificarClase(-1, claseNueva));
+        System.out.println("Tras modificarClase: " + entrenador1);
+
+        // borrarClase
+        System.out.println("Borrar clase: " + entrenador1.borrarClase(clase2));
+        System.out.println("Borrar clase de nuevo: " + entrenador1.borrarClase(clase2));
+
+        System.out.println("------------- PRUEBA EMPLEADO ------------");
+
+    // agregarTurno y anadirTurno
+        empleado1.agregarTurno(Empleado.Turno.MANANA);
+        empleado1.agregarTurno(Empleado.Turno.TARDE);
+        empleado1.agregarTurno(Empleado.Turno.MANANA);
+        empleado1.anadirTurno(Empleado.Turno.NOCHE);
+        empleado1.anadirTurno(null);
+        System.out.println("Historial tras agregar turnos: " + empleado1.getHistorialTurnos());
+
+    // haTrabajadoEnTurno
+        System.out.println("¿Ha trabajado en mañana? " + empleado1.haTrabajadoEnTurno(Empleado.Turno.MANANA));
+        System.out.println("¿Ha trabajado en tarde? " + empleado1.haTrabajadoEnTurno(Empleado.Turno.TARDE));
+
+    // buscarPrimerTurno y buscarUltimoTurno
+        System.out.println("Primer turno de mañana: " + empleado1.buscarPrimerTurno(Empleado.Turno.MANANA));
+        System.out.println("Último turno de mañana: " + empleado1.buscarUltimoTurno(Empleado.Turno.MANANA));
+
+    // modificarTurno
+        Empleado.Turno anterior = empleado1.modificarTurno(0, Empleado.Turno.NOCHE);
+        System.out.println("Turno reemplazado en turno 0: " + anterior);
+        System.out.println("Modificar turno inválido: " + empleado1.modificarTurno(-1, Empleado.Turno.TARDE));
+        System.out.println("Historial tras modificar: " + empleado1.getHistorialTurnos());
+
+    // reemplazarTurno
+        int reemplazados = empleado1.reemplazarTurno(Empleado.Turno.MANANA, Empleado.Turno.TARDE);
+        System.out.println("Turnos mañana reemplazados por tarde: " + reemplazados);
+        System.out.println("Reemplazar turno con null: " + empleado1.reemplazarTurno(null, Empleado.Turno.TARDE));
+        System.out.println("Historial tras reemplazar: " + empleado1.getHistorialTurnos());
+
+    // borrarTurno por índice
+        Empleado.Turno borrado = empleado1.borrarTurno(0);
+        System.out.println("Turno borrado en índice 0: " + borrado);
+        System.out.println("borrarTurno índice inválido: " + empleado1.borrarTurno(99));
+        System.out.println("Historial tras borrar índice: " + empleado1.getHistorialTurnos());
+
+    // borrarTodosTurnos
+        empleado1.agregarTurno(Empleado.Turno.TARDE);
+        empleado1.agregarTurno(Empleado.Turno.TARDE);
+        int borradosTodos = empleado1.borrarTodosTurnos(Empleado.Turno.TARDE);
+        System.out.println("Turnos tarde eliminados: " + borradosTodos);
+        System.out.println("Historial tras borrar todos los turnos: " + empleado1.getHistorialTurnos());
+
     }
 
 }

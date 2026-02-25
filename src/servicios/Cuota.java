@@ -2,23 +2,28 @@ package servicios;
 
 import java.util.Objects;
 
-public class Cuota extends Servicio{
-        public enum Periodo { MENSUAL, TRIMESTRAL, ANUAL }
-        private Periodo periodo;
-        private double precio;
+// Clase que representa una cuota de pago del gimnasio, extiende de Servicio
+public class Cuota extends Servicio {
 
+    // Periodos de pago disponibles para la cuota
+    public enum Periodo { MENSUAL, TRIMESTRAL, ANUAL }
+
+    private Periodo periodo;
+    private double precio;
+
+    // Constructor completo
     public Cuota(int idServicio, String nombre, boolean activo, Periodo periodo, double precio) {
         super(idServicio, nombre, activo);
         this.periodo = periodo;
         this.precio = precio;
     }
 
-
+    // Constructor vacío
     public Cuota() {
         super();
     }
 
-
+    // Getters y setters
     public Periodo getPeriodo() {
         return periodo;
     }
@@ -35,6 +40,7 @@ public class Cuota extends Servicio{
         this.precio = precio;
     }
 
+    // Equals y HashCode
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
@@ -48,6 +54,7 @@ public class Cuota extends Servicio{
         return Objects.hash(super.hashCode(), periodo, precio);
     }
 
+    // Devuelve los datos principales de la cuota en formato texto
     @Override
     public String toString() {
         String estado = isActivo() ? "ACTIVA" : "INACTIVA";
