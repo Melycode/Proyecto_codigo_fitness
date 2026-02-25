@@ -148,13 +148,6 @@ public class Clase extends Servicio{
 
     @Override
     public String toString() {
-        return "Clase{" +
-                "especialidad=" + especialidad +
-                ", nivel=" + nivel +
-                ", duracion=" + duracion +
-                ", precio=" + precio +
-                ", listClientes=" + listClientes +
-                ", setClientes=" + setClientes +
-                '}';
+        return " La clase{" + especialidad + nivel + ", tiene una duración de " + duracion + ", y su costo es de " + precio;
     }
 }

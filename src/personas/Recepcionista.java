@@ -10,7 +10,7 @@ public class Recepcionista extends Persona {
     private String idiomas;
     private boolean turnoExtra;
     private double bonus;
-    private HashMap<Cliente, ArrayList<Cuota>> registroCuotasClientes;
+    private HashMap<Cliente, ArrayList<Cuota>> registroCuotasClientes = new HashMap<>();;
 
     public Recepcionista(String nombre, String dni, int edad, Sexo sexo, int mostrador, String idiomas, boolean turnoExtra, double bonus) {
         super(nombre, dni, edad, sexo);
@@ -56,6 +56,24 @@ public class Recepcionista extends Persona {
         this.bonus = bonus;
     }
 
+    public void agregarCuota(Cliente cliente, Cuota cuota) {
+        // Si el cliente no está en el mapa, le creamos una lista nueva
+        registroCuotasClientes.putIfAbsent(cliente, new ArrayList<>());
+        // Añadimos la cuota a su lista
+        registroCuotasClientes.get(cliente).add(cuota);
+    }
+
+    public ArrayList<Cuota> buscarHistorial(String dni) {
+        // Buscamos en el mapa el cliente que coincida con ese DNI
+        for (Cliente c : registroCuotasClientes.keySet()) {
+            if (c.getDni().equals(dni)) {
+                return registroCuotasClientes.get(c);
+            }
+        }
+        return null;
+    }
+
+
     @Override
     public String toString() {
         return "Recepcionista{" +
@@ -65,7 +83,4 @@ public class Recepcionista extends Persona {
                 ", bonus=" + bonus +
                 '}';
     }
-
-
-
 }
