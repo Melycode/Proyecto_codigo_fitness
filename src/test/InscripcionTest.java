@@ -7,16 +7,18 @@ import personas.Cliente;
 import personas.Persona;
 import servicios.Cuota;
 import servicios.Inscripcion;
-
 import static org.junit.jupiter.api.Assertions.*;
 
+// Tests de la clase Inscripcion
 public class InscripcionTest {
 
+    // Metodo auxiliar para limpiar las listas estáticas entre tests
     private void limpiarListas() {
         Inscripcion.getListaInscripciones().clear();
         Inscripcion.getConjuntoInscripciones().clear();
     }
 
+    // Test que comprueba que agregarInscripcion() añade la inscripción correctamente
     @Test
     public void testAgregarInscripcionCorrectamente() {
         limpiarListas();
@@ -30,6 +32,7 @@ public class InscripcionTest {
         assertEquals(1, Inscripcion.getListaInscripciones().size());
     }
 
+    // Test que comprueba que buscarPorDNI() encuentra la inscripción correcta
     @Test
     public void testBuscarInscripcionPorDNIExistente() {
         limpiarListas();
@@ -44,6 +47,7 @@ public class InscripcionTest {
         assertEquals("INS001", encontrada.getIdInscripcion());
     }
 
+    // Test que comprueba que modificarCuota() cambia la cuota de la inscripción correctamente
     @Test
     public void testModificarCuota() {
         limpiarListas();
@@ -59,6 +63,7 @@ public class InscripcionTest {
         assertEquals(cuota2, gestora.buscarPorDNI("55555555E").getCuota());
     }
 
+    // Test que comprueba que modificarEstadoPago() actualiza el estado de pago correctamente
     @Test
     public void testModificarEstadoPago() {
         limpiarListas();
@@ -73,6 +78,7 @@ public class InscripcionTest {
         assertTrue(gestora.buscarPorDNI("55555555E").isPagado());
     }
 
+    // Test que comprueba que eliminarInscripcionPorDNI() borra la inscripción correctamente
     @Test
     public void testEliminarInscripcion() {
         limpiarListas();
@@ -87,6 +93,7 @@ public class InscripcionTest {
         assertEquals(0, Inscripcion.getListaInscripciones().size());
     }
 
+    // Test que comprueba que se pueden agregar dos inscripciones de clientes distintos
     @Test
     public void testAgregarDosInscripciones() {
         limpiarListas();
@@ -103,6 +110,7 @@ public class InscripcionTest {
         assertEquals(2, Inscripcion.getListaInscripciones().size());
     }
 
+    // TEST NEGATIVO: agregar una inscripción con el mismo DNI debe devolver false
     @Test
     public void testAgregarInscripcionDuplicada() {
         limpiarListas();
@@ -117,6 +125,7 @@ public class InscripcionTest {
         assertFalse(resultado);
     }
 
+    // TEST NEGATIVO: buscar por DNI inexistente debe lanzar ClienteNoEncontradoException
     @Test
     public void testBuscarDNINoExistente() {
         limpiarListas();
@@ -129,6 +138,7 @@ public class InscripcionTest {
         });
     }
 
+    // TEST NEGATIVO: intentar pagar una inscripción ya pagada debe lanzar PagoYaRealizadoException
     @Test
     public void testPagarInscripcionYaPagada() {
         limpiarListas();
@@ -146,6 +156,7 @@ public class InscripcionTest {
         });
     }
 
+    // TEST NEGATIVO: eliminar una inscripción con DNI inexistente debe devolver false
     @Test
     public void testEliminarInscripcionNoExistente() {
         limpiarListas();
@@ -154,6 +165,7 @@ public class InscripcionTest {
         assertFalse(resultado);
     }
 
+    // TEST NEGATIVO: agregar una inscripción null debe devolver false
     @Test
     public void testAgregarInscripcionNull() {
         limpiarListas();
