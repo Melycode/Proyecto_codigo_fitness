@@ -1,3 +1,4 @@
+import interfaz.CalculadoraIMC;
 import personas.*;
 import servicios.*;
 
@@ -157,6 +158,12 @@ public class Main {
         System.out.println("Turnos tarde eliminados: " + borradosTodos);
         System.out.println("Historial tras borrar todos los turnos: " + empleado1.getHistorialTurnos());
 
-    }
+    // interfaz gráfica
 
-}
+                CalculadoraIMC calculadora = new CalculadoraIMC();
+                calculadora.setVisible(true);
+            }
+        }
+
+
+
