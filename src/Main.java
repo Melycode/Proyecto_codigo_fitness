@@ -1,4 +1,5 @@
 import interfaz.CalculadoraIMC;
+import json.GestorJSON;
 import personas.*;
 import servicios.*;
 
@@ -162,8 +163,21 @@ public class Main {
 
                 CalculadoraIMC calculadora = new CalculadoraIMC();
                 calculadora.setVisible(true);
-            }
+
+                // ---- GESTOR JSON ----
+
+// Escribir inscripciones en el archivo JSON
+        System.out.println("--- Guardando inscripciones en JSON ---");
+        GestorJSON.escribirInscripciones(Inscripcion.getListaInscripciones());
+
+// Leer inscripciones desde el archivo JSON
+        System.out.println("--- Leyendo inscripciones desde JSON ---");
+        ArrayList<Inscripcion> inscripcionesLeidas = GestorJSON.leerInscripciones();
+        for (Inscripcion ins : inscripcionesLeidas) {
+            System.out.println(ins);
         }
+    }
+}
 
 
 
