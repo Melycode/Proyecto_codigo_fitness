@@ -50,6 +50,10 @@ public class Main {
         Inscripcion i1 = new Inscripcion(1, "Inscripción 1", true, "Inscripción mensual de Milan", "INS-001", c1, cuotaMensual, "2026-02-15", true);
         Inscripcion i2 = new Inscripcion(2, "Inscripción 2", true, "Inscripción anual de Akemi", "INS-002", c2, cuotaAnual, "2026-02-15", false);
 
+        // Máquinas
+        Maquina maquina1 = new Maquina(01, "Musculación", true, "Máquina de musculación", "Multiestación Homcom1", Maquina.EstadoMaquina.OPERATIVA, 175.0, false, new HashMap<LocalDate, Maquina.EstadoMaquina>());
+        Maquina maquina2 = new Maquina(02, "Musculación", true, "Prensa de piernas", "Prensa piernas", Maquina.EstadoMaquina.AVERIADA, 315.0, false, new HashMap<LocalDate, Maquina.EstadoMaquina>());
+
     }
 }
 
