@@ -26,6 +26,13 @@ public class Main {
         Entrenador entrenador2 = new Entrenador("Maria Montero", "16604934T", 28,
                 Persona.Sexo.MUJER,
                 Entrenador.Especialidad.MUSCULACION, 5, true, 100.0, new ArrayList<>());
+
+        // Clientes
+        Cliente c1 = new Cliente("Milan Gutiérrez", "123456789A", 19,
+                Persona.Sexo.HOMBRE,
+                "CLI-01", Cliente.TipoMembresia.PREMIUM, 100.0, true);
+        Cliente c2 = new Cliente("Akemi Gutiérrez", "987654321B", 18, Persona.Sexo.MUJER,
+                "CLI-02", Cliente.TipoMembresia.BASICA, 50.0, true);
     }
 }
 
