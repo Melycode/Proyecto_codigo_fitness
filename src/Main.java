@@ -33,6 +33,14 @@ public class Main {
                 "CLI-01", Cliente.TipoMembresia.PREMIUM, 100.0, true);
         Cliente c2 = new Cliente("Akemi Gutiérrez", "987654321B", 18, Persona.Sexo.MUJER,
                 "CLI-02", Cliente.TipoMembresia.BASICA, 50.0, true);
+
+        // Recepcionistas
+        Recepcionista r1 = new Recepcionista("Napoleón", "77975690D", 51,
+                Persona.Sexo.HOMBRE,
+                3, "Francés", true, 150.0);
+        Recepcionista r2 = new Recepcionista("Barney", "77975690F", 69,
+                Persona.Sexo.OTRO,
+                2, "Inglés", false, 300.0);
     }
 }
 
