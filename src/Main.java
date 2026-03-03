@@ -46,6 +46,10 @@ public class Main {
         Cuota cuotaMensual = new Cuota(1, "Plan Fitness", true, "Plan mensual básico", Cuota.Periodo.MENSUAL, 45.0, 0, true);
         Cuota cuotaAnual = new Cuota(2, "Plan Oro", true, "Plan anual premium", Cuota.Periodo.ANUAL, 400.0, 10, true);
 
+        // Inscripciones
+        Inscripcion i1 = new Inscripcion(1, "Inscripción 1", true, "Inscripción mensual de Milan", "INS-001", c1, cuotaMensual, "2026-02-15", true);
+        Inscripcion i2 = new Inscripcion(2, "Inscripción 2", true, "Inscripción anual de Akemi", "INS-002", c2, cuotaAnual, "2026-02-15", false);
+
     }
 }
 
