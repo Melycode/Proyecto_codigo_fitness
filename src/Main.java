@@ -18,6 +18,14 @@ public class Main {
         Empleado empleado2 = new Empleado("Diego Pérez", "40236607D", 40,
                 Persona.Sexo.HOMBRE,
                 Empleado.Turno.MANANA, 1800.0, "06-12-2022", true, new ArrayList<>());
+
+        // Entrenadores
+        Entrenador entrenador1 = new Entrenador("Manuel Ruiz", "49166034S", 35,
+                Persona.Sexo.HOMBRE,
+                Entrenador.Especialidad.YOGA, 15, true, 150.0, new ArrayList<>());
+        Entrenador entrenador2 = new Entrenador("Maria Montero", "16604934T", 28,
+                Persona.Sexo.MUJER,
+                Entrenador.Especialidad.MUSCULACION, 5, true, 100.0, new ArrayList<>());
     }
 }
 
