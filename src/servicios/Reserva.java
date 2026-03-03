@@ -14,8 +14,17 @@ public class Reserva extends Servicio {
     private boolean confirmada;
 
     // Constructor completo
-    public Reserva(int idServicio, String nombre, boolean activo, Cliente cliente, Clase clase, String fecha, boolean confirmada) {
-        super(idServicio, nombre, activo);
+
+
+    public Reserva(int idServicio, String nombre, boolean activo, String descripcion, Cliente cliente, Clase clase, String fecha, boolean confirmada) {
+        super(idServicio, nombre, activo, descripcion);
+        this.cliente = cliente;
+        this.clase = clase;
+        this.fecha = fecha;
+        this.confirmada = confirmada;
+    }
+
+    public Reserva(Cliente cliente, Clase clase, String fecha, boolean confirmada) {
         this.cliente = cliente;
         this.clase = clase;
         this.fecha = fecha;
@@ -28,6 +37,8 @@ public class Reserva extends Servicio {
     }
 
     // Getters y setters
+
+
     public Cliente getCliente() {
         return cliente;
     }
@@ -61,6 +72,8 @@ public class Reserva extends Servicio {
     }
 
     // equals y hashCode
+
+
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
@@ -78,10 +91,11 @@ public class Reserva extends Servicio {
     @Override
     public String toString() {
         String estado = confirmada ? "CONFIRMADA" : "PENDIENTE";
-        return String.format("RESERVA [%s] | Cliente: %s | Clase: %s | Fecha: %s",
+        return String.format("RESERVA [%s] | Cliente: %s | Clase: %s | Fecha: %s | Descripción: %s",
                 estado,
                 cliente.getNombre(),
                 clase.getNombre(),
-                fecha);
+                fecha,
+                descripcion);
     }
 }

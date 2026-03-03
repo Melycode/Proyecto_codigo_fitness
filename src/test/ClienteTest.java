@@ -88,7 +88,7 @@ public class ClienteTest {
     public void testPagoYaRealizado() {
         Cliente cliente = new Cliente("Alba García", "12345678A", 25, Persona.Sexo.MUJER,
                 "C001", Cliente.TipoMembresia.PREMIUM, 150.0, true);
-        Inscripcion ins = new Inscripcion(1, "Inscripcion1", true,
+        Inscripcion ins = new Inscripcion(1, "Inscripcion1", true, "Inscripción de prueba",
                 "INS001", cliente,
                 new Cuota(10, "Mensual", true, Cuota.Periodo.MENSUAL, 30.0),
                 "2025-01-01", true);

@@ -13,18 +13,24 @@ public class Maquina extends Servicio {
     private HashMap<LocalDate, EstadoMaquina> historialEstados;
 
     // Constructor completo
-    public Maquina(int idServicio, String nombre, boolean activo,
-                   String nombreMaquina, EstadoMaquina estado, double horasUso,
-                   boolean mantenimiento, HashMap<LocalDate, EstadoMaquina> historialEstados) {
-        super(idServicio, nombre, activo);
+
+
+    public Maquina(int idServicio, String nombre, boolean activo, String descripcion, String nombreMaquina, EstadoMaquina estado, double horasUso, boolean mantenimiento, HashMap<LocalDate, EstadoMaquina> historialEstados) {
+        super(idServicio, nombre, activo, descripcion);
         this.nombreMaquina = nombreMaquina;
         this.estado = estado;
         this.horasUso = horasUso;
         this.mantenimiento = mantenimiento;
-        this.historialEstados = (historialEstados != null) ? historialEstados : new HashMap<>();
-
+        this.historialEstados = historialEstados;
     }
 
+    public Maquina(String nombreMaquina, EstadoMaquina estado, double horasUso, boolean mantenimiento, HashMap<LocalDate, EstadoMaquina> historialEstados) {
+        this.nombreMaquina = nombreMaquina;
+        this.estado = estado;
+        this.horasUso = horasUso;
+        this.mantenimiento = mantenimiento;
+        this.historialEstados = historialEstados;
+    }
 
     public Maquina() {
         super();
@@ -32,6 +38,8 @@ public class Maquina extends Servicio {
     }
 
     // Getters y setters
+
+
     public String getNombreMaquina() {
         return nombreMaquina;
     }
@@ -105,6 +113,8 @@ public class Maquina extends Servicio {
 
 
     // Equals y HashCode
+
+
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
@@ -113,7 +123,6 @@ public class Maquina extends Servicio {
         return Double.compare(horasUso, maquina.horasUso) == 0 && mantenimiento == maquina.mantenimiento && Objects.equals(nombreMaquina, maquina.nombreMaquina) && estado == maquina.estado && Objects.equals(historialEstados, maquina.historialEstados);
     }
 
-    // Devuelve los datos principales de la máquina en formato texto
     @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), nombreMaquina, estado, horasUso, mantenimiento, historialEstados);
@@ -122,11 +131,12 @@ public class Maquina extends Servicio {
     // Devuelve los datos principales de la máquina en formato texto
     @Override
     public String toString() {
-        return  nombreMaquina + '\'' + estado + "debido a que ha sido usada " + horasUso + " y ahora está " + mantenimiento;
+        return String.format("MAQUINA [%s] | Nombre: %s | Debido a que ha sido usada: %s horas | Ahora está en mantenimiento: %s | Descripción: %s",
+                estado,
+                nombreMaquina,
+                horasUso,
+                mantenimiento,
+                descripcion);
     }
-
-
-
-
 
 }

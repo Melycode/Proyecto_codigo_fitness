@@ -16,14 +16,15 @@ public class Inscripcion extends Servicio {
 
 
     // Constructor completo
-    public Inscripcion(int idServicio, String nombre, boolean activo, String idInscripcion, Cliente cliente, Cuota cuota, String fechaInicio, boolean pagado) {
-        super(idServicio, nombre, activo);
+    public Inscripcion(int idServicio, String nombre, boolean activo, String descripcion, String idInscripcion, Cliente cliente, Cuota cuota, String fechaInicio, boolean pagado) {
+        super(idServicio, nombre, activo, descripcion);
         this.idInscripcion = idInscripcion;
         this.cliente = cliente;
         this.cuota = cuota;
         this.fechaInicio = fechaInicio;
         this.pagado = pagado;
     }
+
 
     // Constructor vacío
     public Inscripcion() {
@@ -32,6 +33,8 @@ public class Inscripcion extends Servicio {
 
 
     // Getters y setters
+
+
     public String getIdInscripcion() {
         return idInscripcion;
     }
@@ -168,9 +171,12 @@ public class Inscripcion extends Servicio {
     // Devuelve los datos principales de la inscripción en formato texto
     @Override
     public String toString() {
-        return "Inscripción [" + idInscripcion + "] | Cliente: " + (cliente != null ? cliente.getNombre() : "N/A") +
-                " | Plan: " + (cuota != null ? cuota.getNombre() : "N/A") +
-                " | Precio: " + (cuota != null ? cuota.getPrecio() : 0.0) + "€" +
-                " | Pagado: " + (pagado ? "SÍ" : "NO");
+        String estado = pagado ? "PAGADO" : "PENDIENTE";
+        return String.format("INSCRIPCION [%s] | Cliente: %s | Plan: %s | Precio: %s€ | Descripción: %s",
+                estado,
+                cliente != null ? cliente.getNombre() : "N/A",
+                cuota != null ? cuota.getNombre() : "N/A",
+                cuota != null ? cuota.getPrecio() : 0.0,
+                descripcion);
     }
 }

@@ -23,22 +23,28 @@ public class Main {
         Cliente c1 = new Cliente("Milan Gutiérrez", "123456789A", 19, Persona.Sexo.HOMBRE, "CLI-01", Cliente.TipoMembresia.PREMIUM, 100.0, true);
         Cliente c2 = new Cliente("Akemi Gutiérrez", "987654321B", 18, Persona.Sexo.MUJER, "CLI-02", Cliente.TipoMembresia.BASICA, 50.0, true);
 
-        Inscripcion i1 = new Inscripcion(1, "Inscripción 1", true, "INS-001", c1, cuotaMensual, "2026-02-15", true);
-        Inscripcion i2 = new Inscripcion(2, "Inscripción 2", true, "INS-002", c2, cuotaAnual, "2026-02-15", false);
+        Inscripcion i1 = new Inscripcion(1, "Inscripción 1", true, "Inscripción mensual de Milan", "INS-001", c1, cuotaMensual, "2026-02-15", true);
+        Inscripcion i2 = new Inscripcion(2, "Inscripción 2", true, "Inscripción anual de Akemi", "INS-002", c2, cuotaAnual, "2026-02-15", false);
 
         Recepcionista r1 = new Recepcionista("Napoleón", "77975690D", 51, Persona.Sexo.HOMBRE, 3, "Francés", true, 150.0);
         Recepcionista r2 = new Recepcionista("Barney", "77975690F", 69, Persona.Sexo.OTRO, 2, "Inglés", false, 300.0);
 
-        Maquina maquina1 =new Maquina(01, "Musculación", true, "Multiestación Homcom1", Maquina.EstadoMaquina.OPERATIVA, 175.0, false,  new HashMap<LocalDate, Maquina.EstadoMaquina>());
-        Maquina maquina2 = new  Maquina(02, "Musculación", true, "Prensa piernas", Maquina.EstadoMaquina.AVERIADA, 315.0, false, new HashMap<LocalDate, Maquina.EstadoMaquina>());
-
+        Maquina maquina1 = new Maquina(01, "Musculación", true, "Máquina de musculación", "Multiestación Homcom1", Maquina.EstadoMaquina.OPERATIVA, 175.0, false, new HashMap<LocalDate, Maquina.EstadoMaquina>());
+        Maquina maquina2 = new Maquina(02, "Musculación", true, "Prensa de piernas", "Prensa piernas", Maquina.EstadoMaquina.AVERIADA, 315.0, false, new HashMap<LocalDate, Maquina.EstadoMaquina>());
+        System.out.println(maquina1);
+        System.out.println(maquina2);
 
         Clase clase1 = new Clase(03, "Talleres", true, personas.Entrenador.Especialidad.YOGA, Clase.NivelDificultad.INTERMEDIO, 60, 15.50);
         Clase clase2 =  new Clase(04, "Musculación", true, Entrenador.Especialidad.YOGA, Clase.NivelDificultad.INTERMEDIO, 60, 15.50);
+        System.out.println(clase1);
+        System.out.println(clase2);
 
-        Reserva reserva1 = new Reserva(1, "Musculacion", true, c1, clase1, "10-02-2026", true );
-        Reserva reserva2 = new Reserva(2, "Yoga", true, c2, clase2, "11-02-2026",true);
 
+        Reserva reserva1 = new Reserva(1, "Musculacion", true, "Reserva de clase de musculación", c1, clase1, "10-02-2026", true);
+        Reserva reserva2 = new Reserva(2, "Yoga", true, "Reserva de clase de yoga", c2, clase2, "11-02-2026", true);
+
+        System.out.println(reserva1);
+        System.out.println(reserva2);
 
 
 
@@ -82,12 +88,13 @@ public class Main {
         System.out.println(eliminada == null ? c1.getNombre() + " ya no está inscrito." : "Error: " + c1.getNombre() + " sigue en la lista.");
 
         System.out.println("-------------PRUEBA RECEPCIONISTA------------");
-        Recepcionista recepcionista = new Recepcionista();
-        recepcionista.agregarCuota(c1, cuotaMensual);
-        recepcionista.agregarCuota(c2, cuotaAnual);
+        System.out.println(r1);
+        System.out.println(r2);
+        r1.agregarCuota(c1, cuotaMensual);
+        r1.agregarCuota(c2, cuotaAnual);
 
         System.out.println("--- Historial de " + c1.getNombre() + " ---");
-        ArrayList<Cuota> historialMilan = recepcionista.buscarHistorial(c1.getDni());
+        ArrayList<Cuota> historialMilan = r1.buscarHistorial(c1.getDni());
         if (historialMilan != null) {
             historialMilan.forEach(cuota -> System.out.println(cuota));
         }
