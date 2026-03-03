@@ -65,5 +65,6 @@ public class Servicio {
     public String toString() {
         return "Servicio: " + nombre + " (ID: " + idServicio + ") [" + (activo ? "Activo" : "Inactivo") + "]";
     }
+
 }
 

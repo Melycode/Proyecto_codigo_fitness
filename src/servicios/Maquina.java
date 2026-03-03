@@ -124,4 +124,9 @@ public class Maquina extends Servicio {
     public String toString() {
         return  nombreMaquina + '\'' + estado + "debido a que ha sido usada " + horasUso + " y ahora está " + mantenimiento;
     }
+
+
+
+
+
 }
