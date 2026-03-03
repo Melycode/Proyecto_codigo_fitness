@@ -2,7 +2,9 @@ package personas;
 
 import java.util.Objects;
 
+// Clase padre
 public class Persona {
+    // Enumera las opciones de sexo
     public enum Sexo { HOMBRE, MUJER, OTRO }
 
     private String nombre;
@@ -10,6 +12,8 @@ public class Persona {
     private int edad;
     private Sexo sexo;
 
+
+    // Constructor completo
     public Persona(String nombre, String dni, int edad, Sexo sexo) {
         this.nombre = nombre;
         this.dni = dni;
@@ -17,9 +21,12 @@ public class Persona {
         this.sexo = sexo;
     }
 
+    // Constructor vacio
     public Persona() {
     }
 
+
+    // Getters y setters
     public String getNombre() {
         return nombre;
     }
@@ -52,6 +59,7 @@ public class Persona {
         this.sexo = sexo;
     }
 
+    // Equals y HashCode
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
@@ -64,7 +72,7 @@ public class Persona {
         return Objects.hash(nombre, dni, edad, sexo);
     }
 
-
+    // Devuelve los datos principales de la persona en formato texto
     @Override
     public String toString() {
         return "Persona{" +

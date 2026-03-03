@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Objects;
 
+// Clase que representa una inscripción al gimnasio, extiende de Servicio
 public class Inscripcion extends Servicio {
-
     private String idInscripcion;
     private Cliente cliente;
     private Cuota cuota;
@@ -14,6 +14,8 @@ public class Inscripcion extends Servicio {
     private static ArrayList<Inscripcion> listaInscripciones = new ArrayList<>();
     private static HashSet<Inscripcion> conjuntoInscripciones = new HashSet<>();
 
+
+    // Constructor completo
     public Inscripcion(int idServicio, String nombre, boolean activo, String idInscripcion, Cliente cliente, Cuota cuota, String fechaInicio, boolean pagado) {
         super(idServicio, nombre, activo);
         this.idInscripcion = idInscripcion;
@@ -23,11 +25,13 @@ public class Inscripcion extends Servicio {
         this.pagado = pagado;
     }
 
-
+    // Constructor vacío
     public Inscripcion() {
         super();
     }
 
+
+    // Getters y setters
     public String getIdInscripcion() {
         return idInscripcion;
     }
@@ -84,7 +88,7 @@ public class Inscripcion extends Servicio {
         Inscripcion.conjuntoInscripciones = conjuntoInscripciones;
     }
 
-
+    // Agrega una inscripción si el cliente no está ya inscrito, devuelve true si se añadió
     public boolean agregarInscripcion(Inscripcion ins) {
         if (ins != null) {
             for (Inscripcion i : listaInscripciones) {
@@ -100,6 +104,7 @@ public class Inscripcion extends Servicio {
         return false;
     }
 
+    // Busca y devuelve una inscripción por el DNI del cliente, o null si no existe
     public Inscripcion buscarPorDNI(String dni) {
         for (Inscripcion ins : listaInscripciones) {
             if (ins.getCliente() != null &&
@@ -112,6 +117,7 @@ public class Inscripcion extends Servicio {
         return null;
     }
 
+    // Modifica la cuota de una inscripción buscando por DNI, devuelve true si se modificó
     public boolean modificarCuota(String dni, Cuota nuevaCuota) {
         Inscripcion ins = buscarPorDNI(dni);
         if (ins != null && nuevaCuota != null) {
@@ -121,6 +127,7 @@ public class Inscripcion extends Servicio {
         return false;
     }
 
+    // Modifica el estado de pago de una inscripción buscando por DNI, devuelve true si se modificó
     public boolean modificarEstadoPago(String dni, boolean nuevoEstado) {
         Inscripcion ins = buscarPorDNI(dni);
         if (ins != null) {
@@ -131,7 +138,7 @@ public class Inscripcion extends Servicio {
     }
 
 
-
+    // Elimina una inscripción por el DNI del cliente, devuelve true si se eliminó correctamente
     public boolean eliminarInscripcionPorDNI(String dni) {
         Inscripcion ins = buscarPorDNI(dni);
         if (ins != null) {
@@ -143,15 +150,13 @@ public class Inscripcion extends Servicio {
     }
 
 
-
+    // Equals y HashCode
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Inscripcion that = (Inscripcion) o;
         return Objects.equals(idInscripcion, that.idInscripcion);
-
-
     }
 
     @Override
@@ -159,6 +164,8 @@ public class Inscripcion extends Servicio {
         return Objects.hash(idInscripcion);
     }
 
+
+    // Devuelve los datos principales de la inscripción en formato texto
     @Override
     public String toString() {
         return "Inscripción [" + idInscripcion + "] | Cliente: " + (cliente != null ? cliente.getNombre() : "N/A") +

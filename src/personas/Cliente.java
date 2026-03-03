@@ -2,14 +2,17 @@ package personas;
 
 import java.util.Objects;
 
+
+// Clase que representa a un cliente del gimnasio, extiende de Persona
 public class Cliente extends Persona {
+    // Membresias disponibles para los clientes
     public enum TipoMembresia { BASICA, PREMIUM, VIP }
     private String idCliente;
     private TipoMembresia tipoMembresia;
     private double saldo;
     private boolean activo;
 
-
+    // Constructor completo
     public Cliente(String nombre, String dni, int edad, Sexo sexo, String idCliente, TipoMembresia tipoMembresia, double saldo, boolean activo) {
         super(nombre, dni, edad, sexo);
         this.idCliente = idCliente;
@@ -18,13 +21,13 @@ public class Cliente extends Persona {
         this.activo = activo;
     }
 
-
+    // Constructor vacio
     public Cliente() {
         super();
     }
 
 
-
+    // Getters y setters
     public String getIdCliente() {
         return idCliente;
     }
@@ -58,7 +61,7 @@ public class Cliente extends Persona {
     }
 
 
-
+    // Equals y HashCode
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
@@ -73,7 +76,7 @@ public class Cliente extends Persona {
     }
 
 
-
+    // Devuelve los datos principales del cliente en formato texto
     @Override
     public String toString() {
         return "Cliente{" +

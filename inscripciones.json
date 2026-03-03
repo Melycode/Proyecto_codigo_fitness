@@ -1,0 +1,25 @@
+[ {
+  "idServicio" : 2,
+  "nombre" : "Inscripción 2",
+  "activo" : true,
+  "idInscripcion" : "INS-002",
+  "cliente" : {
+    "nombre" : "Akemi Gutiérrez",
+    "dni" : "987654321B",
+    "edad" : 18,
+    "sexo" : "MUJER",
+    "idCliente" : "CLI-02",
+    "tipoMembresia" : "BASICA",
+    "saldo" : 50.0,
+    "activo" : true
+  },
+  "cuota" : {
+    "idServicio" : 1,
+    "nombre" : "Plan Fitness",
+    "activo" : true,
+    "periodo" : "MENSUAL",
+    "precio" : 45.0
+  },
+  "fechaInicio" : "2026-02-15",
+  "pagado" : false
+} ]

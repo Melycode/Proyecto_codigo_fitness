@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Objects;
 
+
+// Clase que representa a una clase del gimnasio, extiende de Servicio
 public class Clase extends Servicio{
         private Entrenador.Especialidad especialidad;
         public enum NivelDificultad { PRINCIPIANTE, INTERMEDIO, AVANZADO }
@@ -15,6 +17,7 @@ public class Clase extends Servicio{
         private HashSet<Cliente> setClientes = new HashSet<>();
 
 
+    // Constructor completo
     public Clase(int idServicio, String nombre, boolean activo, Entrenador.Especialidad especialidad, NivelDificultad nivel, int duracion, double precio) {
         super(idServicio, nombre, activo);
         this.especialidad = especialidad;
@@ -23,9 +26,13 @@ public class Clase extends Servicio{
         this.precio = precio;
     }
 
+
+    // Constructor vacio
     public Clase() {
         super();
     }
+
+    // Getters y setters
 
     public Entrenador.Especialidad getEspecialidad() {
         return especialidad;
@@ -71,23 +78,7 @@ public class Clase extends Servicio{
     }
 
 
-    @Override
-    public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
-        Clase clase = (Clase) o;
-        return duracion == clase.duracion && Double.compare(precio, clase.precio) == 0 && especialidad == clase.especialidad && nivel == clase.nivel && Objects.equals(listClientes, clase.listClientes) && Objects.equals(setClientes, clase.setClientes);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(super.hashCode(), especialidad, nivel, duracion, precio, listClientes, setClientes);
-    }
-
-
-
-    // MET
-
+    // Agrega un cliente a la clase si la especialidad, nivel y disponibilidad son correctos
     public boolean agregarCliente(Cliente cliente, Entrenador.Especialidad especialidadElegida, NivelDificultad nivelElegido) {
         if (this.especialidad != especialidadElegida) {
             System.out.println("Esta clase es de " + this.especialidad + ", no de " + especialidadElegida);
@@ -110,6 +101,7 @@ public class Clase extends Servicio{
         return true;
     }
 
+    // Busca un cliente en la lista por su ID, devuelve el cliente o null si no existe
     public Cliente buscarCliente(String idCliente) {
         for (Cliente c : listClientes) {
             if (c.getIdCliente().equals(idCliente)) {
@@ -120,7 +112,7 @@ public class Clase extends Servicio{
         return null;
     }
 
-
+    // Elimina un cliente de la clase por su ID, devuelve true si se eliminó correctamente
     public boolean eliminarCliente(String idCliente) {
         Cliente cliente = buscarCliente(idCliente);
 
@@ -134,6 +126,7 @@ public class Clase extends Servicio{
         return false;
     }
 
+    // Actualiza la especialidad y nivel de la clase, notificando a todos los clientes inscritos
     public void actualizarCurso(Entrenador.Especialidad nuevaEspecialidad, NivelDificultad nuevoNivel) {
         this.especialidad = nuevaEspecialidad;
         this.nivel = nuevoNivel;
@@ -145,7 +138,23 @@ public class Clase extends Servicio{
         }
     }
 
+    // Equals y HashCode
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Clase clase = (Clase) o;
+        return duracion == clase.duracion && Double.compare(precio, clase.precio) == 0 && especialidad == clase.especialidad && nivel == clase.nivel && Objects.equals(listClientes, clase.listClientes) && Objects.equals(setClientes, clase.setClientes);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), especialidad, nivel, duracion, precio, listClientes, setClientes);
+    }
+
+
+
+    // Devuelve los datos principales de la clase en formato texto
     @Override
     public String toString() {
         return " La clase{" + especialidad + nivel + ", tiene una duración de " + duracion + ", y su costo es de " + precio;
