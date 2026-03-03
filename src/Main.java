@@ -41,6 +41,11 @@ public class Main {
         Recepcionista r2 = new Recepcionista("Barney", "77975690F", 69,
                 Persona.Sexo.OTRO,
                 2, "Inglés", false, 300.0);
+
+        // Cuotas
+        Cuota cuotaMensual = new Cuota(1, "Plan Fitness", true, "Plan mensual básico", Cuota.Periodo.MENSUAL, 45.0, 0, true);
+        Cuota cuotaAnual = new Cuota(2, "Plan Oro", true, "Plan anual premium", Cuota.Periodo.ANUAL, 400.0, 10, true);
+
     }
 }
 
