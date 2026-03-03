@@ -57,6 +57,9 @@ public class Main {
         Clase clase1 = new Clase(03, "Talleres", true, "Clase de yoga", Entrenador.Especialidad.YOGA, Clase.NivelDificultad.INTERMEDIO, 60, 15.50, new ArrayList<>(), new HashSet<>());
         Clase clase2 = new Clase(04, "Musculación", true, "Clase de musculación", Entrenador.Especialidad.YOGA, Clase.NivelDificultad.INTERMEDIO, 60, 15.50, new ArrayList<>(), new HashSet<>());
 
+        Reserva reserva1 = new Reserva(1, "Musculacion", true, "Reserva de clase de musculación", c1, clase1, "10-02-2026", true);
+        Reserva reserva2 = new Reserva(2, "Yoga", true, "Reserva de clase de yoga", c2, clase2, "11-02-2026", true);
+
     }
 }
 
