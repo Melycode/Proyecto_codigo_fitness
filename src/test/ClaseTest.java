@@ -10,8 +10,10 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import static org.junit.jupiter.api.Assertions.*;
 
+// Tests de la clase Clase
 public class ClaseTest {
 
+    // Comprueba que getNombre() devuelve el nombre correcto de la clase
     @Test
     public void testGetNombreClase() {
         Clase clase = new Clase(1, "Yoga Matutino", true, "Clase de prueba", Entrenador.Especialidad.YOGA,
@@ -19,6 +21,7 @@ public class ClaseTest {
         assertEquals("Yoga Matutino", clase.getNombre());
     }
 
+    // Comprueba que getPrecio() devuelve el precio correcto
     @Test
     public void testGetPrecio() {
         Clase clase = new Clase(1, "Yoga Matutino", true, "Clase de prueba", Entrenador.Especialidad.YOGA,
@@ -26,6 +29,7 @@ public class ClaseTest {
         assertEquals(15.0, clase.getPrecio());
     }
 
+    // Comprueba que la clase está activa al crearla con activo=true
     @Test
     public void testClaseActiva() {
         Clase clase = new Clase(1, "Yoga Matutino", true, "Clase de prueba", Entrenador.Especialidad.YOGA,
@@ -33,6 +37,7 @@ public class ClaseTest {
         assertTrue(clase.isActivo());
     }
 
+    // Comprueba que agregarCliente() funciona correctamente con especialidad y nivel correctos
     @Test
     public void testAgregarClienteCorrecto() {
         Clase clase = new Clase(1, "Yoga Matutino", true, "Clase de prueba", Entrenador.Especialidad.YOGA,
@@ -45,6 +50,7 @@ public class ClaseTest {
         assertEquals(1, clase.getListClientes().size());
     }
 
+    // Comprueba que buscarCliente() encuentra al cliente por su ID
     @Test
     public void testBuscarClienteExistente() {
         Clase clase = new Clase(1, "Yoga Matutino", true, "Clase de prueba", Entrenador.Especialidad.YOGA,
@@ -57,6 +63,7 @@ public class ClaseTest {
         assertEquals("Nacho Torres", encontrado.getNombre());
     }
 
+    // Comprueba que eliminarCliente() borra al cliente y la lista queda vacía
     @Test
     public void testEliminarClienteExistente() {
         Clase clase = new Clase(1, "Yoga Matutino", true, "Clase de prueba", Entrenador.Especialidad.YOGA,
@@ -69,6 +76,7 @@ public class ClaseTest {
         assertEquals(0, clase.getListClientes().size());
     }
 
+    // NEGATIVO: agregar cliente con especialidad incorrecta debe devolver false
     @Test
     public void testAgregarClienteEspecialidadIncorrecta() {
         Clase clase = new Clase(1, "Yoga Matutino", true, "Clase de prueba", Entrenador.Especialidad.YOGA,
@@ -80,6 +88,7 @@ public class ClaseTest {
         assertFalse(resultado);
     }
 
+    // NEGATIVO: agregar cliente con nivel incorrecto debe devolver false
     @Test
     public void testAgregarClienteNivelIncorrecto() {
         Clase clase = new Clase(1, "Yoga Matutino", true, "Clase de prueba", Entrenador.Especialidad.YOGA,
@@ -91,6 +100,7 @@ public class ClaseTest {
         assertFalse(resultado);
     }
 
+    // NEGATIVO: buscar un cliente inexistente debe lanzar ClienteNoEncontradoException
     @Test
     public void testBuscarClienteNoExistente() {
         Clase clase = new Clase(1, "Yoga Matutino", true, "Clase de prueba", Entrenador.Especialidad.YOGA,
@@ -103,6 +113,7 @@ public class ClaseTest {
         });
     }
 
+    // NEGATIVO: cuando la clase está llena se lanza CapacidadMaximaException
     @Test
     public void testCapacidadMaximaAlcanzada() {
         Clase clase = new Clase(1, "Yoga Matutino", true, "Clase de prueba", Entrenador.Especialidad.YOGA,
@@ -121,6 +132,7 @@ public class ClaseTest {
         });
     }
 
+    // NEGATIVO: agregar el mismo cliente dos veces debe devolver false la segunda vez
     @Test
     public void testAgregarClienteDuplicado() {
         Clase clase = new Clase(1, "Yoga Matutino", true, "Clase de prueba", Entrenador.Especialidad.YOGA,
