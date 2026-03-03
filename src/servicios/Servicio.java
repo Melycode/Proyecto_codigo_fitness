@@ -7,12 +7,16 @@ public class Servicio {
     private int idServicio;
     protected String nombre;
     protected boolean activo;
+    protected String descripcion;
+
 
     // Constructor completo
-    public Servicio(int idServicio, String nombre, boolean activo) {
+
+    public Servicio(int idServicio, String nombre, boolean activo, String descripcion) {
         this.idServicio = idServicio;
         this.nombre = nombre;
         this.activo = activo;
+        this.descripcion = descripcion;
     }
 
     // Constructor vacio
@@ -45,26 +49,33 @@ public class Servicio {
         this.activo = activo;
     }
 
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
     // Equals y HashCode
+
+
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true; // Optimización de referencia
         if (o == null || getClass() != o.getClass()) return false;
         Servicio servicio = (Servicio) o;
-        return idServicio == servicio.idServicio;
+        return idServicio == servicio.idServicio && activo == servicio.activo && Objects.equals(nombre, servicio.nombre) && Objects.equals(descripcion, servicio.descripcion);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idServicio);
+        return Objects.hash(idServicio, nombre, activo, descripcion);
     }
-
 
     // Devuelve los datos principales del servicio en formato texto
     @Override
     public String toString() {
-        return "Servicio: " + nombre + " (ID: " + idServicio + ") [" + (activo ? "Activo" : "Inactivo") + "]";
+        return "Servicio: " + nombre + " (ID: " + idServicio + ") [" + (activo ? "Activo" : "Inactivo") + "] | Descripción: " + descripcion;
     }
 
 }
-
