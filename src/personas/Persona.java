@@ -75,11 +75,9 @@ public class Persona {
     // Devuelve los datos principales de la persona en formato texto
     @Override
     public String toString() {
-        return "Persona{" +
-                "nombre='" + nombre + '\'' +
-                ", dni='" + dni + '\'' +
-                ", edad=" + edad +
-                ", sexo=" + sexo +
-                '}';
+        return "PERSONA: " + nombre +
+                " | DNI: " + dni +
+                " | Edad: " + edad +
+                " | Sexo: " + sexo;
     }
 }

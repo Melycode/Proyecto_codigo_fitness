@@ -62,6 +62,15 @@ public class Recepcionista extends Persona {
         this.bonus = bonus;
     }
 
+    public HashMap<Cliente, ArrayList<Cuota>> getRegistroCuotasClientes() {
+        return registroCuotasClientes;
+    }
+
+    public void setRegistroCuotasClientes(HashMap<Cliente, ArrayList<Cuota>> registroCuotasClientes) {
+        this.registroCuotasClientes = registroCuotasClientes;
+    }
+
+
     // Añade una cuota al historial del cliente, creando su lista si no existe
     public void agregarCuota(Cliente cliente, Cuota cuota) {
         // Si el cliente no está en el mapa, le creamos una lista nueva
@@ -98,11 +107,11 @@ public class Recepcionista extends Persona {
     // Devuelve los datos principales de la recepcionista en formato texto
     @Override
     public String toString() {
-        return "Recepcionista{" +
-                "mostrador=" + mostrador +
-                ", idiomas='" + idiomas + '\'' +
-                ", turnoExtra=" + turnoExtra +
-                ", bonus=" + bonus +
-                '}';
+        String turno = turnoExtra ? "Sí" : "No";
+        return "RECEPCIONISTA: " + getNombre() +
+                " | Mostrador: " + mostrador +
+                " | Idiomas: " + idiomas +
+                " | Turno extra: " + turno +
+                " | Bonus: " + bonus + "€";
     }
 }

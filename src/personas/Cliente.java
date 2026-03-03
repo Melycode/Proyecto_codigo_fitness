@@ -79,16 +79,12 @@ public class Cliente extends Persona {
     // Devuelve los datos principales del cliente en formato texto
     @Override
     public String toString() {
-        return "Cliente{" +
-                "nombre='" + getNombre() + '\'' +
-                ", dni='" + getDni() + '\'' +
-                ", edad=" + getEdad() +
-                ", sexo=" + getSexo() +
-                ", idCliente='" + idCliente + '\'' +
-                ", tipoMembresia=" + tipoMembresia +
-                ", saldo=" + saldo +
-                ", activo=" + activo +
-                '}';
+        String estado = activo ? "Activo" : "Inactivo";
+        return "CLIENTE: " + getNombre() +
+                " | ID: " + idCliente +
+                " | Membresía: " + tipoMembresia +
+                " | Saldo: " + saldo + "€" +
+                " | Estado: " + estado;
     }
 
 }

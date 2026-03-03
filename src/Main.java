@@ -13,18 +13,28 @@ public class Main {
         Inscripcion gestor = new Inscripcion();
         Empleado empleado1 = new Empleado("Melissa Guerrero", "50302218M", 46, Persona.Sexo.MUJER, Empleado.Turno.TARDE, 1760.0, "12-02-2018", true, new ArrayList<>());
         Empleado empleado2 = new Empleado("Diego Pérez", "40236607D", 40, Persona.Sexo.HOMBRE, Empleado.Turno.MANANA, 1800.0, "06-12-2022",true, new ArrayList<>());
+        System.out.println(empleado1);
+        System.out.println(empleado2);
 
         Entrenador entrenador1 = new Entrenador("Manuel Ruiz", "49166034S", 35, Persona.Sexo.HOMBRE, Entrenador.Especialidad.YOGA, 15, true, 150.0, new ArrayList<>());
         Entrenador entrenador2 = new Entrenador("Maria Montero", "16604934T", 28, Persona.Sexo.MUJER, Entrenador.Especialidad.MUSCULACION, 5, true, 100.0, new ArrayList<>());
+        System.out.println(entrenador1);
+        System.out.println(entrenador2);
 
         Cuota cuotaMensual = new Cuota(1, "Plan Fitness", true, "Plan mensual básico", Cuota.Periodo.MENSUAL, 45.0, 0, true);
         Cuota cuotaAnual = new Cuota(2, "Plan Oro", true, "Plan anual premium", Cuota.Periodo.ANUAL, 400.0, 10, true);
+        System.out.println(cuotaMensual);
+        System.out.println(cuotaAnual);
 
         Cliente c1 = new Cliente("Milan Gutiérrez", "123456789A", 19, Persona.Sexo.HOMBRE, "CLI-01", Cliente.TipoMembresia.PREMIUM, 100.0, true);
         Cliente c2 = new Cliente("Akemi Gutiérrez", "987654321B", 18, Persona.Sexo.MUJER, "CLI-02", Cliente.TipoMembresia.BASICA, 50.0, true);
+        System.out.println(c1);
+        System.out.println(c2);
+
 
         Inscripcion i1 = new Inscripcion(1, "Inscripción 1", true, "Inscripción mensual de Milan", "INS-001", c1, cuotaMensual, "2026-02-15", true);
         Inscripcion i2 = new Inscripcion(2, "Inscripción 2", true, "Inscripción anual de Akemi", "INS-002", c2, cuotaAnual, "2026-02-15", false);
+
 
         Recepcionista r1 = new Recepcionista("Napoleón", "77975690D", 51, Persona.Sexo.HOMBRE, 3, "Francés", true, 150.0);
         Recepcionista r2 = new Recepcionista("Barney", "77975690F", 69, Persona.Sexo.OTRO, 2, "Inglés", false, 300.0);
@@ -42,7 +52,6 @@ public class Main {
 
         Reserva reserva1 = new Reserva(1, "Musculacion", true, "Reserva de clase de musculación", c1, clase1, "10-02-2026", true);
         Reserva reserva2 = new Reserva(2, "Yoga", true, "Reserva de clase de yoga", c2, clase2, "11-02-2026", true);
-
         System.out.println(reserva1);
         System.out.println(reserva2);
 
