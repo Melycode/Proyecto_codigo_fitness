@@ -46,6 +46,14 @@ public class CalculadoraIMC extends JFrame {
         add(btnCalcular);
 
         btnCalcular.addActionListener(e -> {
+            String nombre = inputNombre.getText();
+
+            if (!nombre.matches("[A-Z][a-z]+")) {
+                JOptionPane.showMessageDialog(this,
+                        "El nombre debe empezar con mayúscula y solo contener letras.", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
             try {
                 double peso = Double.parseDouble(inputPeso.getText());
                 double altura = Double.parseDouble(inputAltura.getText());
@@ -63,7 +71,7 @@ public class CalculadoraIMC extends JFrame {
                 }
 
                 JOptionPane.showMessageDialog(this,
-                        String.format("Nombre: %s\nIMC: %.2f\nCategoría: %s", inputNombre.getText(), imc, categoria),
+                        String.format("Nombre: %s\nIMC: %.2f\nCategoría: %s", nombre, imc, categoria),
                         "Resultado", JOptionPane.INFORMATION_MESSAGE);
 
             } catch (NumberFormatException ex) {

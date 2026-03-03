@@ -2,6 +2,7 @@
   "idServicio" : 2,
   "nombre" : "Inscripción 2",
   "activo" : true,
+  "descripcion" : "Inscripción anual de Akemi",
   "idInscripcion" : "INS-002",
   "cliente" : {
     "nombre" : "Akemi Gutiérrez",
@@ -17,8 +18,11 @@
     "idServicio" : 1,
     "nombre" : "Plan Fitness",
     "activo" : true,
+    "descripcion" : "Plan mensual básico",
     "periodo" : "MENSUAL",
-    "precio" : 45.0
+    "precio" : 45.0,
+    "descuento" : 0,
+    "renovacion" : true
   },
   "fechaInicio" : "2026-02-15",
   "pagado" : false
