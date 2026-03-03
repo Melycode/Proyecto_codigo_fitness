@@ -18,12 +18,16 @@ public class Clase extends Servicio{
 
 
     // Constructor completo
-    public Clase(int idServicio, String nombre, boolean activo, Entrenador.Especialidad especialidad, NivelDificultad nivel, int duracion, double precio) {
-        super(idServicio, nombre, activo);
+
+
+    public Clase(int idServicio, String nombre, boolean activo, String descripcion, Entrenador.Especialidad especialidad, NivelDificultad nivel, int duracion, double precio, ArrayList<Cliente> listClientes, HashSet<Cliente> setClientes) {
+        super(idServicio, nombre, activo, descripcion);
         this.especialidad = especialidad;
         this.nivel = nivel;
         this.duracion = duracion;
         this.precio = precio;
+        this.listClientes = listClientes;
+        this.setClientes = setClientes;
     }
 
 
@@ -33,6 +37,7 @@ public class Clase extends Servicio{
     }
 
     // Getters y setters
+
 
     public Entrenador.Especialidad getEspecialidad() {
         return especialidad;
@@ -58,8 +63,13 @@ public class Clase extends Servicio{
         this.duracion = duracion;
     }
 
-    public double getPrecio() { return precio; }
-    public void setPrecio(double precio) { this.precio = precio; }
+    public double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
+    }
 
     public ArrayList<Cliente> getListClientes() {
         return listClientes;
@@ -76,7 +86,6 @@ public class Clase extends Servicio{
     public void setSetClientes(HashSet<Cliente> setClientes) {
         this.setClientes = setClientes;
     }
-
 
     // Agrega un cliente a la clase si la especialidad, nivel y disponibilidad son correctos
     public boolean agregarCliente(Cliente cliente, Entrenador.Especialidad especialidadElegida, NivelDificultad nivelElegido) {
@@ -139,6 +148,8 @@ public class Clase extends Servicio{
     }
 
     // Equals y HashCode
+
+
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
@@ -151,8 +162,6 @@ public class Clase extends Servicio{
     public int hashCode() {
         return Objects.hash(super.hashCode(), especialidad, nivel, duracion, precio, listClientes, setClientes);
     }
-
-
 
     // Devuelve los datos principales de la clase en formato texto
     @Override

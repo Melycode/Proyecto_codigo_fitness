@@ -8,7 +8,6 @@ import servicios.Cuota;
 import servicios.Inscripcion;
 import static org.junit.jupiter.api.Assertions.*;
 
-// Tests de la clase Inscripcion
 public class InscripcionTest {
 
     private void limpiarListas() {
@@ -22,7 +21,7 @@ public class InscripcionTest {
         Inscripcion gestora = new Inscripcion();
         Cliente cliente = new Cliente("Dani Castillo", "55555555E", 20, Persona.Sexo.HOMBRE,
                 "C005", Cliente.TipoMembresia.BASICA, 200.0, true);
-        Cuota cuota = new Cuota(1, "Plan Mensual", true, Cuota.Periodo.MENSUAL, 30.0);
+        Cuota cuota = new Cuota(1, "Plan Mensual", true, "Cuota de prueba", Cuota.Periodo.MENSUAL, 30.0, 0, false);
         Inscripcion ins = new Inscripcion(1, "Ins001", true, "Inscripción de prueba", "INS001", cliente, cuota, "2025-01-01", false);
         boolean resultado = gestora.agregarInscripcion(ins);
         assertTrue(resultado);
@@ -35,7 +34,7 @@ public class InscripcionTest {
         Inscripcion gestora = new Inscripcion();
         Cliente cliente = new Cliente("Dani Castillo", "55555555E", 20, Persona.Sexo.HOMBRE,
                 "C005", Cliente.TipoMembresia.BASICA, 200.0, true);
-        Cuota cuota = new Cuota(1, "Plan Mensual", true, Cuota.Periodo.MENSUAL, 30.0);
+        Cuota cuota = new Cuota(1, "Plan Mensual", true, "Cuota de prueba", Cuota.Periodo.MENSUAL, 30.0, 0, false);
         Inscripcion ins = new Inscripcion(1, "Ins001", true, "Inscripción de prueba", "INS001", cliente, cuota, "2025-01-01", false);
         gestora.agregarInscripcion(ins);
         Inscripcion encontrada = gestora.buscarPorDNI("55555555E");
@@ -49,8 +48,8 @@ public class InscripcionTest {
         Inscripcion gestora = new Inscripcion();
         Cliente cliente = new Cliente("Dani Castillo", "55555555E", 20, Persona.Sexo.HOMBRE,
                 "C005", Cliente.TipoMembresia.BASICA, 200.0, true);
-        Cuota cuota1 = new Cuota(1, "Plan Mensual", true, Cuota.Periodo.MENSUAL, 30.0);
-        Cuota cuota2 = new Cuota(2, "Plan Anual", true, Cuota.Periodo.ANUAL, 300.0);
+        Cuota cuota1 = new Cuota(1, "Plan Mensual", true, "Cuota de prueba", Cuota.Periodo.MENSUAL, 30.0, 0, false);
+        Cuota cuota2 = new Cuota(2, "Plan Anual", true, "Cuota anual de prueba", Cuota.Periodo.ANUAL, 300.0, 10, true);
         Inscripcion ins = new Inscripcion(1, "Ins001", true, "Inscripción de prueba", "INS001", cliente, cuota1, "2025-01-01", false);
         gestora.agregarInscripcion(ins);
         boolean modificado = gestora.modificarCuota("55555555E", cuota2);
@@ -64,7 +63,7 @@ public class InscripcionTest {
         Inscripcion gestora = new Inscripcion();
         Cliente cliente = new Cliente("Dani Castillo", "55555555E", 20, Persona.Sexo.HOMBRE,
                 "C005", Cliente.TipoMembresia.BASICA, 200.0, true);
-        Cuota cuota = new Cuota(1, "Plan Mensual", true, Cuota.Periodo.MENSUAL, 30.0);
+        Cuota cuota = new Cuota(1, "Plan Mensual", true, "Cuota de prueba", Cuota.Periodo.MENSUAL, 30.0, 0, false);
         Inscripcion ins = new Inscripcion(1, "Ins001", true, "Inscripción de prueba", "INS001", cliente, cuota, "2025-01-01", false);
         gestora.agregarInscripcion(ins);
         boolean resultado = gestora.modificarEstadoPago("55555555E", true);
@@ -78,7 +77,7 @@ public class InscripcionTest {
         Inscripcion gestora = new Inscripcion();
         Cliente cliente = new Cliente("Dani Castillo", "55555555E", 20, Persona.Sexo.HOMBRE,
                 "C005", Cliente.TipoMembresia.BASICA, 200.0, true);
-        Cuota cuota = new Cuota(1, "Plan Mensual", true, Cuota.Periodo.MENSUAL, 30.0);
+        Cuota cuota = new Cuota(1, "Plan Mensual", true, "Cuota de prueba", Cuota.Periodo.MENSUAL, 30.0, 0, false);
         Inscripcion ins = new Inscripcion(1, "Ins001", true, "Inscripción de prueba", "INS001", cliente, cuota, "2025-01-01", false);
         gestora.agregarInscripcion(ins);
         boolean eliminado = gestora.eliminarInscripcionPorDNI("55555555E");
@@ -94,7 +93,7 @@ public class InscripcionTest {
                 "C005", Cliente.TipoMembresia.BASICA, 200.0, true);
         Cliente cliente2 = new Cliente("Terry Gómez", "66666666F", 32, Persona.Sexo.MUJER,
                 "C006", Cliente.TipoMembresia.VIP, 500.0, true);
-        Cuota cuota = new Cuota(1, "Plan Mensual", true, Cuota.Periodo.MENSUAL, 30.0);
+        Cuota cuota = new Cuota(1, "Plan Mensual", true, "Cuota de prueba", Cuota.Periodo.MENSUAL, 30.0, 0, false);
         Inscripcion ins1 = new Inscripcion(1, "Ins001", true, "Inscripción de prueba", "INS001", cliente1, cuota, "2025-01-01", false);
         Inscripcion ins2 = new Inscripcion(2, "Ins002", true, "Inscripción de prueba", "INS002", cliente2, cuota, "2025-02-01", false);
         gestora.agregarInscripcion(ins1);
@@ -108,7 +107,7 @@ public class InscripcionTest {
         Inscripcion gestora = new Inscripcion();
         Cliente cliente = new Cliente("Dani Castillo", "55555555E", 20, Persona.Sexo.HOMBRE,
                 "C005", Cliente.TipoMembresia.BASICA, 200.0, true);
-        Cuota cuota = new Cuota(1, "Plan Mensual", true, Cuota.Periodo.MENSUAL, 30.0);
+        Cuota cuota = new Cuota(1, "Plan Mensual", true, "Cuota de prueba", Cuota.Periodo.MENSUAL, 30.0, 0, false);
         Inscripcion ins1 = new Inscripcion(1, "Ins001", true, "Inscripción de prueba", "INS001", cliente, cuota, "2025-01-01", false);
         Inscripcion ins2 = new Inscripcion(3, "Ins003", true, "Inscripción de prueba", "INS003", cliente, cuota, "2025-03-01", false);
         gestora.agregarInscripcion(ins1);
@@ -134,7 +133,7 @@ public class InscripcionTest {
         Inscripcion gestora = new Inscripcion();
         Cliente cliente = new Cliente("Dani Castillo", "55555555E", 20, Persona.Sexo.HOMBRE,
                 "C005", Cliente.TipoMembresia.BASICA, 200.0, true);
-        Cuota cuota = new Cuota(1, "Plan Mensual", true, Cuota.Periodo.MENSUAL, 30.0);
+        Cuota cuota = new Cuota(1, "Plan Mensual", true, "Cuota de prueba", Cuota.Periodo.MENSUAL, 30.0, 0, false);
         Inscripcion ins = new Inscripcion(1, "Ins001", true, "Inscripción de prueba", "INS001", cliente, cuota, "2025-01-01", true);
         gestora.agregarInscripcion(ins);
         assertThrows(PagoYaRealizadoException.class, () -> {

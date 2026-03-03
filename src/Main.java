@@ -17,8 +17,8 @@ public class Main {
         Entrenador entrenador1 = new Entrenador("Manuel Ruiz", "49166034S", 35, Persona.Sexo.HOMBRE, Entrenador.Especialidad.YOGA, 15, true, 150.0, new ArrayList<>());
         Entrenador entrenador2 = new Entrenador("Maria Montero", "16604934T", 28, Persona.Sexo.MUJER, Entrenador.Especialidad.MUSCULACION, 5, true, 100.0, new ArrayList<>());
 
-        Cuota cuotaMensual = new Cuota(1, "Plan Fitness", true, Cuota.Periodo.MENSUAL, 45.0);
-        Cuota cuotaAnual = new Cuota(2, "Plan Oro", true, Cuota.Periodo.ANUAL, 400.0);
+        Cuota cuotaMensual = new Cuota(1, "Plan Fitness", true, "Plan mensual básico", Cuota.Periodo.MENSUAL, 45.0, 0, true);
+        Cuota cuotaAnual = new Cuota(2, "Plan Oro", true, "Plan anual premium", Cuota.Periodo.ANUAL, 400.0, 10, true);
 
         Cliente c1 = new Cliente("Milan Gutiérrez", "123456789A", 19, Persona.Sexo.HOMBRE, "CLI-01", Cliente.TipoMembresia.PREMIUM, 100.0, true);
         Cliente c2 = new Cliente("Akemi Gutiérrez", "987654321B", 18, Persona.Sexo.MUJER, "CLI-02", Cliente.TipoMembresia.BASICA, 50.0, true);
@@ -34,8 +34,8 @@ public class Main {
         System.out.println(maquina1);
         System.out.println(maquina2);
 
-        Clase clase1 = new Clase(03, "Talleres", true, personas.Entrenador.Especialidad.YOGA, Clase.NivelDificultad.INTERMEDIO, 60, 15.50);
-        Clase clase2 =  new Clase(04, "Musculación", true, Entrenador.Especialidad.YOGA, Clase.NivelDificultad.INTERMEDIO, 60, 15.50);
+        Clase clase1 = new Clase(03, "Talleres", true, "Clase de yoga", Entrenador.Especialidad.YOGA, Clase.NivelDificultad.INTERMEDIO, 60, 15.50, new ArrayList<>(), new HashSet<>());
+        Clase clase2 = new Clase(04, "Musculación", true, "Clase de musculación", Entrenador.Especialidad.YOGA, Clase.NivelDificultad.INTERMEDIO, 60, 15.50, new ArrayList<>(), new HashSet<>());
         System.out.println(clase1);
         System.out.println(clase2);
 
@@ -111,10 +111,10 @@ public class Main {
         // buscarClase
         int indice = entrenador1.buscarClase(clase1);
         System.out.println("Índice de clase1 en entrenador1: " + indice);
-        System.out.println("Índice de clase no existente: " + entrenador1.buscarClase(new Clase(99, "Test", false, Entrenador.Especialidad.CARDIO, Clase.NivelDificultad.INTERMEDIO, 45, 10.0)));
+        System.out.println("Índice de clase no existente: " + entrenador1.buscarClase(new Clase(99, "Test", false, "Clase de prueba", Entrenador.Especialidad.CARDIO, Clase.NivelDificultad.INTERMEDIO, 45, 10.0, new ArrayList<>(), new HashSet<>())));
 
         // modificarClase
-        Clase claseNueva = new Clase(05, "Cardio", true, Entrenador.Especialidad.CARDIO, Clase.NivelDificultad.AVANZADO, 45, 20.0);
+        Clase claseNueva = new Clase(05, "Cardio", true, "Clase de cardio", Entrenador.Especialidad.CARDIO, Clase.NivelDificultad.AVANZADO, 45, 20.0, new ArrayList<>(), new HashSet<>());
         System.out.println("Modificar clase en índice 0: " + entrenador1.modificarClase(0, claseNueva));
         System.out.println("Modificar índice inválido (-1): " + entrenador1.modificarClase(-1, claseNueva));
         System.out.println("Tras modificarClase: " + entrenador1);
