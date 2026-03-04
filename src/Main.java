@@ -162,11 +162,11 @@ public class Main {
         String respuesta = teclado.nextLine().trim().toLowerCase();
 
         switch (respuesta) {
-            case "si", "sí", "Si", "Sí", "okay", "Vale", "vale", "De una bro", "de una bro" -> {
+            case "si", "sí", "okay", "vale", "de una bro" -> {
                 System.out.println("\nArrancando los moteres nucleares de la Calculadora IMC...🥀");
                 new CalculadoraIMC();
             }
-            case "no", "n" -> {
+            case "no", "que va", "paso" -> {
                 System.out.println("\nUnderstandable bro, have a nice day");
                 System.out.println("Cerrando sistema");
             }
