@@ -1,32 +1,4 @@
 [ {
-  "idServicio" : 300,
-  "nombre" : "Inscripcion Milan",
-  "activo" : true,
-  "descripcion" : "Plan Mensual",
-  "idInscripcion" : "INS-001",
-  "cliente" : {
-    "nombre" : "Milan Gutierrez",
-    "dni" : "12345678A",
-    "edad" : 19,
-    "sexo" : "HOMBRE",
-    "idCliente" : "CLI-01",
-    "tipoMembresia" : "PREMIUM",
-    "saldo" : 100.0,
-    "activo" : true
-  },
-  "cuota" : {
-    "idServicio" : 1,
-    "nombre" : "Plan Fitness",
-    "activo" : true,
-    "descripcion" : "Mensual basico",
-    "periodo" : "MENSUAL",
-    "precio" : 45.0,
-    "descuento" : 0,
-    "renovacion" : true
-  },
-  "fechaInicio" : "2026-02-15",
-  "pagado" : true
-}, {
   "idServicio" : 301,
   "nombre" : "Inscripcion Akemi",
   "activo" : true,
@@ -53,5 +25,5 @@
     "renovacion" : true
   },
   "fechaInicio" : "2026-02-15",
-  "pagado" : false
+  "pagado" : true
 } ]
