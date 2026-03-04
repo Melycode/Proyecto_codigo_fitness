@@ -70,11 +70,11 @@ public class Main {
         // Condicionales y Métodos de Clase
         System.out.println("\nCONTROL DE MAQUINARIA");
         if (maq2.getEstado() == Maquina.EstadoMaquina.AVERIADA) {
-            System.out.println("ALERTA: La maquina " + maq2.getNombreMaquina() + " necesita reparación urgente.");
+            System.out.println("WARNING: La maquina " + maq2.getNombreMaquina() + " necesita reparación urgente.");
         }
 
         // Prueba de métodos: Añadir, Buscar, Modificar y Eliminar ---
-        System.out.println("\nPRUEBA DE MÉTODOS LÓGICOS - GESTIÓN INSCRIPCIONES");
+        System.out.println("\nGESTIÓN INSCRIPCIONES");
         Inscripcion gestora = new Inscripcion();
 
         // Añadir
@@ -95,7 +95,7 @@ public class Main {
         System.out.println("Inscripción de Milan eliminada. Tamaño actual de lista: " + Inscripcion.getListaInscripciones().size());
 
         // 3. MÓDULO DE EXCEPCIONES (UD4)
-        System.out.println("\nMÓDULO DE SEGURIDAD: PRUEBA DE EXCEPCIONES");
+        System.out.println("\nPRUEBA DE EXCEPCIONES");
 
         // Prueba 1: Saldo Insuficiente
         try {
@@ -156,23 +156,23 @@ public class Main {
         // INTERFAZ GRÁFICA
 
         System.out.println("\n-----------------------------------------------------------");
-        System.out.println("¡Operaciones finalizadas con éxito!");
-        System.out.print("¿Deseas abrir la calculadora de IMC ahora? (si/no): ");
+        System.out.println("Por el momento todo está perfecto 🗿🙏");
+        System.out.print("Quieres comprobar tu IMC?🗿 (si/no): ");
 
         String respuesta = teclado.nextLine().trim().toLowerCase();
 
         switch (respuesta) {
-            case "si", "sí", "s", "yes", "y" -> {
-                System.out.println("\nIniciando Calculadora IMC... ¡Hasta pronto!");
+            case "si", "sí", "Si", "Sí", "okay", "Vale", "vale", "De una bro", "de una bro" -> {
+                System.out.println("\nArrancando los moteres nucleares de la Calculadora IMC...🥀");
                 new CalculadoraIMC();
             }
             case "no", "n" -> {
-                System.out.println("\nEntendido. Gracias por usar Código Fitness. ¡Que tengas un gran día!");
-                System.out.println("Cerrando sistema...");
+                System.out.println("\nUnderstandable bro, have a nice day");
+                System.out.println("Cerrando sistema");
             }
             default -> {
-                System.out.println("\nNo he entendido tu respuesta, pero por seguridad cerraremos el programa.");
-                System.out.println("¡Adiós!");
+                System.out.println("\nWhat did u say bro??.");
+                System.out.println("¡Ciao!");
             }
         }
 
