@@ -8,7 +8,7 @@
 ## 👥 Equipo de Desarrollo
 * **Alba Ruiz de la Vega**
 * **Melissa Frida Guerrero Carnero**
-* **Brandon David Chusgo Piaco**
+* **Brandon David Chusgo Paico**
 
 ---
 
