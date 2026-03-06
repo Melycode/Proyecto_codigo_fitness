@@ -48,7 +48,7 @@ public class CalculadoraIMC extends JFrame {
         btnCalcular.addActionListener(e -> {
             String nombre = inputNombre.getText();
 
-            if (!nombre.matches("[A-Z][a-z]+")) {
+            if (!nombre.matches("[A-ZÑ][a-zñ]+")) {
                 JOptionPane.showMessageDialog(this,
                         "El nombre debe empezar con mayúscula y solo contener letras.", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
