@@ -1,42 +1,37 @@
-# 🏋️‍♂️ Proyecto Código Fitness - Gestión de Gimnasio
+# 🏋️‍♂️ Fitness Code Project - Gym Management
 
-## 📝 Descripción del Proyecto
-**Código Fitness** es una aplicación diseñada para la gestión integral de un gimansio. El sistema permite administrar de manera eficiente tanto al personal como los servicios ofrecidos, asegurando un flujo de trabajo profesional y realista.
+## 📝 Project Description  
+**Fitness Code** is an application designed for comprehensive gym management. The system allows efficient administration of both staff and offered services, ensuring a professional and realistic workflow.
 
----
+## 👥 Development Team  
+- Alba Ruiz de la Vega  
+- Melissa Frida Guerrero Carnero  
+- Brandon David Chusgo Paico  
 
-## 👥 Equipo de Desarrollo
-* **Alba Ruiz de la Vega**
-* **Melissa Frida Guerrero Carnero**
-* **Brandon David Chusgo Paico**
+## 📊 Rubric Compliance  
 
----
+### 1. Structure and Modeling  
+- **Class Hierarchy:** Implementation of 11 total classes, including 2 parent classes (*Person* and *Service*) and 9 child classes.  
+- **Instantiation in Main:** 18 objects have been created (2 per child class) to validate system logic.  
+- **Encapsulation:** All classes include full/empty constructors, getters, setters, and overridden methods: `equals`, `hashCode`, and `toString`.  
+- **Data Types:** Extensive use of primitive types and enumerations.  
 
-## 📊 Cumplimiento de la Rúbrica
+### 2. Control Structures and Collections  
+- **Dynamic Collections:** Use of `ArrayList` and `HashSet` in classes such as *Enrollment*, *Employee*, and *Class*.  
+- **Dictionaries (Maps):** Implementation of 2 `HashMap`s for state control in *Machine* and payment history in *Receptionist*.  
+- **CRUD Operations:** Specific methods in each class to add, search, delete, and update elements in collections.  
+- **Flow Logic:** The `Main` executes 4 loops and 4 conditional structures, including a `switch` block.  
 
-### 1. Estructura y Modelado
-* **Jerarquía de Clases:** Implementación de **11 clases** totales, incluyendo **2 clases padre** (`Persona` y `Servicio`) y **9 clases hijas**.
-* **Instanciación en Main:** Se han creado **18 objetos** (2 por cada clase hija) para validar la lógica del sistema.
-* **Encapsulamiento:** Todas las clases disponen de constructores completos/vacíos, getters, setters y sobrescritura de los métodos `equals`, `hashCode` y `toString`.
-* **Tipos de Datos:** Uso exhaustivo de tipos primitivos, y **Enumerados**.
+### 3. Error Handling and Quality  
+- **Custom Exceptions:** 4 custom exceptions have been defined, thrown, and handled using `try-catch` blocks:  
+  - `MaxCapacityException`: Capacity control  
+  - `ClientNotFoundException`: Search errors  
+  - `PaymentAlreadyMadeException`: Duplicate payment control  
+  - `InsufficientBalanceException`: Transaction validation  
+- **Unit Testing:** JUnit test coverage for main classes, including 5 negative test cases to validate behavior under errors.  
 
-### 2. Estructuras de Control y Colecciones
-* **Colecciones Dinámicas:** Uso de **ArrayList** y **HashSet** en clases como `Inscripcion`, `Empleado` y `Clase`.
-* **Diccionarios (Mapas):** Implementación de **2 HashMaps** para el control de estados en `Maquina` y el historial de cuotas en `Recepcionista`.
-* **Operaciones CRUD:** Métodos específicos en cada clase para **añadir, buscar, borrar y modificar** elementos de las colecciones.
-* **Lógica de Flujo:** El `Main` ejecuta **4 bucles** y **4 estructuras condicionales**, incluyendo un bloque `switch`.
-### 3. Gestión de Errores y Calidad
-* **Excepciones Propias:** Se han definido **4 excepciones personalizadas** lanzadas y capturadas mediante bloques `try-catch`:
-    * `CapacidadMaximaException`: Control de aforo.
-    * `ClienteNoEncontradoException`: Errores de búsqueda.
-    * `PagoYaRealizadoException`: Control de duplicidad en cobros.
-    * `SaldoInsuficienteException`: Validación de transacciones.
-* **Pruebas Unitarias:** Cobertura de tests JUnit para las clases principales, incluyendo **5 casos negativos** para validar el comportamiento ante errores.
+### 4. Interface and Persistence  
+- **JSON Persistence:** Use of a JSON library for reading and writing enrollment history in the `inscriptions.json` file.  
+- **Graphical User Interface (GUI):** Implementation of a BMI calculator using the `javax.swing` library, optionally accessible after console execution.  
 
-### 4. Interfaz y Persistencia
-* **Persistencia JSON:** Uso de la librería **JSON** para la lectura y escritura del historial de inscripciones en el fichero `inscripciones.json`.
-* **Interfaz Gráfica (GUI):** Implementación de una **Calculadora de IMC** mediante la librería `javax.swing`, accesible de forma opcional al finalizar la ejecución por consola.
-
----
-
-> **Nota:** El sistema de entrada por consola utiliza `.toLowerCase()` y `.trim()` para garantizar que la interacción del usuario sea fluida y resistente a errores de escritura 🗿.
+> **Note:** The console input system uses `.toLowerCase()` and `.trim()` to ensure smooth and error-resistant user interaction 🗿  
